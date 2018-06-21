@@ -1,0 +1,249 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+body{
+  background-image: url("../images/002.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+nav ul a,
+nav .brand-logo {
+  color: rgb(255, 255, 255);
+}
+nav{
+  padding:20px;
+}
+p {
+  line-height: 2rem;
+}
+
+.button-collapse {
+  color: #26a69a;
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+.collection .collection-item.avatar {
+  padding-top: 20px;
+  min-height: 130px;
+  padding-left: 140px;
+}
+blockquote.profil{
+  background: #c9cac8;
+  border-left: none;
+  font-weight: 700;
+  padding: 15px;
+}
+img.logo{
+  max-width: 200px;
+  padding-top: 10px;
+}
+@media only screen and (max-width: 500px) {
+  img.logo{
+    max-width: 160px;
+    padding-top: 15px;
+    padding-left: 15px;
+  }
+}
+.dropdown-content {
+  min-width: 250px;
+  margin-top:65px;
+}
+.dropdown-content li > a > i {
+  margin: 0 5px 0 0;
+}
+.fixed-action-btn {
+  position: absolute;
+}
+footer a{
+  text-align: left;
+  display:inline-block;
+  padding:5px 0px;
+  font-weight: 200;
+}
+footer a:hover{
+  text-decoration: underline;
+}
+div.test a{
+  font-size:20px;
+  padding:0px 5px;
+  transition:all 1s ease;
+}
+div.test a:hover{
+  font-size:25px;
+  transition: all 1s ease;
+}
+footer div.row{
+  padding:80px;
+}
+footer{
+  padding:0px;
+  margin:0px;
+}
+.section-grey {
+  background-image: url("../images/overlay.png"), linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+  padding: 70px 70px;
+  vertical-align: middle;
+}
+.section-grey .row{
+  align-items: center;
+  display: flex;
+  box-align: center;
+  -webkit-box-align: center;
+}
+.section-grey p {
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+  color: white;
+  margin-bottom: 15px;
+}
+.btn-jolie{
+  background: linear-gradient(135deg, #6B02FF 0%, #985BEF 100%);
+  font-family: 'Roboto', sans-serif;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s ease-in-out;
+  text-transform: none;
+  font-weight: 500;
+  border-radius: 6px 6px;
+  margin: 10px 0;
+  box-shadow: none;
+}
+
+.btn-jolie:hover{
+  background: linear-gradient(135deg, #985BEF 0%, #6B02FF 100%);
+}
+.card-panel.transparent{
+  border: none;
+  box-shadow: transparent;
+  background-image: url("../images/6d0fd3da.png");
+}
+nav .button-collapse{
+  margin: 0px;
+  vertical-align: middle;
+}
+nav ul li a{
+  position: relative;
+  text-align: center;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+  text-shadow: 0px 1px 3px #212121;
+}
+
+nav ul li a.h{
+  color:white;
+}
+
+nav ul li a:hover,nav ul li.active a {
+  color: #121318;
+}
+div.haut{
+  padding: 30px 0px 30px 50px;
+  transition: all 1s ease-in;
+}
+div.haut h5{
+  font-weight: 400;
+  letter-spacing: 10px;
+  transition: all 1s ease-in;
+}
+div.haut h4{
+  font-weight: bold;
+  transition: all 1s ease-in;
+}
+div.haut div{
+  width:500px;
+  transition: all 1s ease-in;
+}
+.button-collapse {
+  color: white;
+}
+@media only screen and (max-width: 400px) {
+  div.haut h5{
+    font-size: 20px !important;
+  }
+  div.haut h4{
+    font-size: 20px !important;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  div.haut h5{
+    font-size: 18px !important;
+  }
+  div.haut h4{
+    font-size: 18px !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  div.haut{
+    padding: 20px;
+    transition: all 1s ease-in;
+  }
+  div.haut h5{
+    font-size: 23px;
+    font-weight: 400;
+    letter-spacing: 10px;
+    transition: all 1s ease-in;
+  }
+  div.haut h4{
+    font-size: 23px;
+    transition: all 1s ease-in;
+  }
+  div.haut div{
+    width:auto;
+    transition: all 1s ease-in;
+  }
+}
+
+
+@media only screen and (max-width: 400px) {
+  div.haut{
+    padding: 10px 10px;
+    transition: all 1s ease-in;
+  }
+}
+.newsletter {
+  padding: 4em 0;
+  background: #212121;
+  opacity:0.6;
+}
+.nleft p {
+  font-size: 2em;
+  color: #fff;
+  text-transform: capitalize;
+}
+.nright input[type="email"] {
+  padding-left: 20px;
+  outline: none;
+  color: #212121;
+  width: 73.8%;
+  background: #fff;
+  border: none;
+}
+.nright input:focus {
+  box-shadow: 0 0 0 0 black !important;
+  border-bottom: none !important;
+}
+.nright input[type="submit"] {
+  outline: none;
+  padding: 5px 0;
+  width: 25%;
+  background: #22d8aa;
+  color: #212121;
+  font-size: 1em;
+  border: none;
+}
