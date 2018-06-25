@@ -48,31 +48,15 @@ $utilisateur = $AdminManager->get($id);
                 <a href="#" class="brand-logo">
                     <span class="logo-text hide-on-med-and-down">Shamak</span>
                 </a>
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li class="active"><a href="index.php">Accueil</a></li>
-                    <li><a href="mescroniques.php">Mes Chroniques</a></li>
-                    <li><a href="momentsdecriture.php">Moments d'écriture</a></li>
-                    <li><a href="lookbook.php">Lookbook</a></li>
-                    <li><a href="emotion.php">Emotion</a></li>
-                </ul>
-                <ul class="side-nav" id="mobile-demo">
-                    <li class="active"><a href="index.php">Accueil</a></li>
-                    <li><a href="mescroniques.php">Mes Chroniques</a></li>
-                    <li><a href="momentsdecriture.php">Moments d'écriture</a></li>
-                    <li><a href="lookbook.php">Lookbook</a></li>
-                    <li><a href="emotion.php">Emotion</a></li>
-                </ul>
             </div>
         </nav>
-    <?php $colors = array("blue-grey"); ?>
     <div class="row">
         <div class="row deep-purple" style="padding:80px;">
             <h6 class="header center white-text text-lighten-2">Cette page est réservée uniquement à l'administrateur du site</h6>
         </div>
         <div class="" style="margin-top=20px">
             <div class="row center">
-                <a href="ajouter.php" class="btn-large waves-effect waves-light teal lighten-1 pulse"><i class="fa fa-calendar-plus-o"></i> Ajouter un article</a>
+                <a href="ajouter.php" class="btn-large waves-effect waves-light teal lighten-1 pulse"><i class="fa fa-calendar-plus-o"></i> Ajouter une publication</a>
             </div>
         </div>
     </div>
@@ -81,13 +65,13 @@ $utilisateur = $AdminManager->get($id);
             <div class="col m12 s12">
                 <h5 class="black-text white">A PROPOS</h5>
                 <p class="white-text text-darken-1 thin">
-                    Interface d'administration des chroniques de suzanne
+                    Interface d'administration de shamak allharamadji
                 </p>
             </div>
         </div>
         <div class="footer-copyright">
             <div class="container black-text">
-            Copyright ©2018 All rights reserved - Made with <i class="fa fa-heart pink-text"></i> by <a class="white-text text-lighten-1" href="mailto:alladintroumba@gmail.com">#l@d!n$t@r#</a>
+            Copyright ©2018 All rights reserved - Made with <i class="fa fa-heart pink-text"></i> by <a class="white-text text-lighten-1" href="https://www.github.com/Ladinstar">#l@d!n$t@r#</a> and <a class="white-text text-lighten-1" href="https://www.github.com/nejos97">nejostar</a> 
             </div>
         </div>
     </footer>

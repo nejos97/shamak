@@ -1,21 +1,17 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>Welcome to the web site of Shamak Allharamadji</title>
 
-        <link rel="shortcut icon" href="images/favicon.svg" type="image/x-icon">
-        <!--Import Google Icon Font-->
+        <link href="images/favicon.svg" rel="shortcut icon" type="image/x-icon">
         <link href="css/css.css" rel="stylesheet" type="text/css">
         <link href="css/icon.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/font-awesome.css">
-        
-        <!-- CSS  -->
+        <link href="css/font-awesome.css" rel="stylesheet">
         <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     </head>
-
     <body>
         <div class="row black white-text haut" style="margin-bottom:0px;" align="center">
             <div align="center">
@@ -52,15 +48,33 @@
                 <img src="images/face copie.png" style="display: block; transform: translate3d(-50%, 195px, 0px);">
             </div>
         </div>
-        <div class="newsletter">
+        <?php
+        if(isset($_GET['newsletter'])){
+            switch ($_GET['newsletter']) {
+                case 'success':
+                    $newsletter = "Your registration has been successful ..";
+                    break;
+                case 'already':
+                    $newsletter = "You have already registered for the Newsletter ..";
+                    break;
+                case 'enter':
+                    $newsletter = "You must enter an e-mail address ..";
+                    break;
+                case 'fill':
+                    $newsletter = "You must fill all empty fields ..";
+                break;
+            }
+        }
+        ?>
+        <div class="newsletter" id="newsletter">
             <div class="container">
                 <div class="input-field col s6 nleft">
                     <p>Subscribe to our newsletter</p>
                 </div>
                 <div class="input-field col s6 nright">
-                    <form action="#" method="post">
+                    <form action="script/newsletter.php" method="post">
                         <input name="emailNewsLetter" placeholder="Email..." required="" type="email">
-                        <button class="btn btn-large waves-effect waves-light" name="newsletter" type="submit">Send</button>
+                        <button class="btn btn-large waves-effect waves-light" name="newsletterform" type="submit">Send</button>
                     </form>
                 </div>
             </div>
@@ -119,6 +133,13 @@
         <script>
         $(document).ready(function(){
             $('.slider').slider();
+                
+            var options = [
+            {selector: '#newsletter', offset: 0, callback: function(el) {
+                Materialize.toast('<?php if(isset($newsletter)){ echo $newsletter; } ?>', 4000 );
+            } }
+            ];
+            Materialize.scrollFire(options);
         });
         </script>
         <script src="js/js.js"></script>

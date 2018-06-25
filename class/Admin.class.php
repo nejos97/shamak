@@ -4,7 +4,7 @@
  */
 Class Admin{
 
-    /**
+    /**s
      * Identifiant de l'administrateur
      *
      * @var int
@@ -41,41 +41,112 @@ Class Admin{
      */
     private $mdpAdmin;
 
+    /**
+     * Get idAdmin
+     *
+     * @return int
+     */
     public function idAdmin(){
         return (int)$this->idAdmin;
     }
+
+    /**
+     * Get nomAdmin
+     *
+     * @return string
+     */
     public function nomAdmin(){
         return $this->nomAdmin;
     }
+
+    /**
+     * Get prenomAdmin
+     *
+     * @return string
+     */
     public function prenomAdmin(){
         return $this->prenomAdmin;
     }
+
+    /**
+     * Get sexeAdmin
+     *
+     * @return string
+     */
     public function sexeAdmin(){
         return $this->sexeAdmin;
     }
+
+    /**
+     * Get emailAdmin
+     *
+     * @return string
+     */
     public function emailAdmin(){
         return $this->emailAdmin;
     }
+
+    /**
+     * Get mdpAdmin
+     *
+     * @return string
+     */
     public function mdpAdmin(){
         return $this->mdpAdmin;
     }
 
+    /**
+     * set idAdmin
+     *
+     * @param int $idAdmin
+     * @return void
+     */
     //setteurs
     public function setIdAdmin($idAdmin){
         $this->idAdmin = $idAdmin;
     }
+    /**
+     * set NomAdmin
+     *
+     * @param string $nomAdmin
+     * @return void
+     */
     public function setNomAdmin($nomAdmin){
         $this->nomAdmin = $nomAdmin;
     }
+    /**
+     * set prenomAdmin
+     *
+     * @param string $prenomAdmin
+     * @return void
+     */
     public function setPrenomAdmin($prenomAdmin){
         $this->prenomAdmin = $prenomAdmin;
     }
+    /**
+     * set sexeAdmin
+     *
+     * @param string $sexeAdmin
+     * @return void
+     */
     public function setSexeAdmin($sexeAdmin){
         $this->sexeAdmin = $sexeAdmin;
     }
+    /**
+     * set emailAdmin
+     *
+     * @param string $emailAdmin
+     * @return void
+     */
     public function setEmailAdmin($emailAdmin){
         $this->emailAdmin = $emailAdmin;
     }
+    /**
+     * set mdpAdmin
+     *
+     * @param string $mdpAdmin
+     * @return void
+     */
     public function setMdpAdmin($mdpAdmin){
         $this->mdpAdmin = $mdpAdmin;
     }
