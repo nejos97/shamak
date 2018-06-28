@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__."\Admin.class.php";
+require_once __DIR__."/Admin.class.php";
 
 /**
  * Manager de la classe Admin
@@ -98,32 +98,36 @@ Class AdminManager{
     public function update(Admin $admin)
     {
         $q = $this->_db->prepare('UPDATE Admin SET nomAdmin = :nomAdmin, prenomAdmin = :prenomAdmin, sexeAdmin = :sexeAdmin, emailAdmin = :emailAdmin, mdpAdmin = :mdpAdmin WHERE idAdmin = :idAdmin');
-        
+
         $q->bindValue(':nomAdmin', $admin->nomAdmin(), PDO::PARAM_INT);
         $q->bindValue(':prenomAdmin', $admin->prenomAdmin(), PDO::PARAM_INT);
         $q->bindValue(':sexeAdmin', $admin->sexeAdmin(), PDO::PARAM_INT);
         $q->bindValue(':emailAdmin', $admin->emailAdmin(), PDO::PARAM_INT);
         $q->bindValue(':mdpAdmin', $admin->mdpAdmin(), PDO::PARAM_INT);
         $q->bindValue(':idAdmin', $admin->idAdmin(), PDO::PARAM_INT);
-
         $q->execute();
     }
 
 
     public function connexion($email,$mdp){
-        $q = $this->_db->prepare('SELECT * FROM Admin WHERE emailAdmin = :emailAdmin AND mdpAdmin=:mdpAdmin ');
 
-        $q->bindValue(':emailAdmin', $email);
-        $q->bindValue(':mdpAdmin', $mdp);
+        $q = $this->_db->prepare('SELECT * FROM admin WHERE emailAdmin = :email AND mdpAdmin=:mdp ');
+        $q->bindValue(':email', $email);
+        $q->bindValue(':mdp', $mdp);
         $q->execute();
-
         $donnees = $q->fetch();
-        if ((int)$donnees['idAdmin']>0){
-            return (int)$donnees['idAdmin'];
+        if(!empty($donnees)){
+          return new Admin($donnees);
         }
-        else{
-            return 0;
-        }
+        return false;
+    }
+    public function setConnectedUser(Admin $data){
+      $_SESSION['admin'] = serialize($data);
+    }
+    public function destroyUser()
+    {
+      unset($_SESSION['admin']);
+      session_destroy();
     }
 }
 ?>

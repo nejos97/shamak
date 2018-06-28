@@ -2,10 +2,10 @@
 -- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Client :  127.0.0.1
--- Généré le :  Lun 25 Juin 2018 à 10:00
--- Version du serveur :  5.7.9
--- Version de PHP :  5.6.16
+-- Host: localhost
+-- Generation Time: Jun 28, 2018 at 12:52 
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,145 +17,153 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `shamak`
+-- Database: `shamak`
 --
 
+<<<<<<< Updated upstream
 CREATE DATABASE shamak;
 
+=======
+>>>>>>> Stashed changes
 -- --------------------------------------------------------
 
 --
--- Structure de la table `acteur`
+-- Table structure for table `acteur`
 --
 
-DROP TABLE IF EXISTS `acteur`;
-CREATE TABLE IF NOT EXISTS `acteur` (
+CREATE TABLE `acteur` (
   `idActeur` int(11) NOT NULL,
   `nomActeur` varchar(254) NOT NULL,
-  `prenomActeur` varchar(254) DEFAULT NULL,
-  PRIMARY KEY (`idActeur`)
+  `prenomActeur` varchar(254) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `acteur`
+--
+
+INSERT INTO `acteur` (`idActeur`, `nomActeur`, `prenomActeur`) VALUES
+(5, 'Avaika', 'Troumba'),
+(4, 'Nenba', 'Jonathan'),
+(6, 'X maleya', '');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `admin`
+-- Table structure for table `admin`
 --
 
-DROP TABLE IF EXISTS `admin`;
-CREATE TABLE IF NOT EXISTS `admin` (
-  `idAdmin` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `admin` (
+  `idAdmin` int(11) NOT NULL,
   `nomAdmin` varchar(254) NOT NULL,
   `prenomAdmin` varchar(254) NOT NULL,
   `sexeAdmin` enum('m','f') NOT NULL DEFAULT 'm' COMMENT 'Sexe',
   `emailAdmin` varchar(254) NOT NULL,
-  `mdpAdmin` varchar(254) NOT NULL,
-  PRIMARY KEY (`idAdmin`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `mdpAdmin` varchar(254) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`idAdmin`, `nomAdmin`, `prenomAdmin`, `sexeAdmin`, `emailAdmin`, `mdpAdmin`) VALUES
-(1, 'shamak', 'allharamadji', 'm', 'shamak@gmail.com', '8104ba1dc0409b259f487ed07db477c38f205a30');
+(1, 'shamak', 'allharamadji', 'm', 'shamak@gmail.com', '8104ba1dc0409b259f487ed07db477c38f205a30'),
+(2, 'Nenba', 'Jonathan', 'm', 'jnenba@pm.me', '7c01e815085568413c90f9dfd8658c29a46a5e22');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `artiste`
+-- Table structure for table `artiste`
 --
 
-DROP TABLE IF EXISTS `artiste`;
-CREATE TABLE IF NOT EXISTS `artiste` (
-  `idArtiste` int(11) NOT NULL AUTO_INCREMENT,
-  `nomArtiste` varchar(254) NOT NULL,
-  PRIMARY KEY (`idArtiste`)
+CREATE TABLE `artiste` (
+  `idArtiste` int(11) NOT NULL,
+  `nomArtiste` varchar(254) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `artiste`
+--
+
+INSERT INTO `artiste` (`idArtiste`, `nomArtiste`) VALUES
+(3, 'Tony Nobody'),
+(2, 'Ezaboto');
+
 -- --------------------------------------------------------
 
 --
--- Structure de la table `comprend`
+-- Table structure for table `comprend`
 --
 
-DROP TABLE IF EXISTS `comprend`;
-CREATE TABLE IF NOT EXISTS `comprend` (
+CREATE TABLE `comprend` (
   `idFilm` int(11) NOT NULL,
-  `idGenre` int(11) NOT NULL,
-  PRIMARY KEY (`idFilm`,`idGenre`),
-  KEY `FK_comprend` (`idGenre`)
+  `idGenre` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `entreprise`
+-- Table structure for table `entreprise`
 --
 
-DROP TABLE IF EXISTS `entreprise`;
-CREATE TABLE IF NOT EXISTS `entreprise` (
+CREATE TABLE `entreprise` (
   `idEntreprise` int(11) NOT NULL,
-  `nomEntreprise` varchar(254) NOT NULL,
-  PRIMARY KEY (`idEntreprise`)
+  `nomEntreprise` varchar(254) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `film`
+-- Table structure for table `film`
 --
 
-DROP TABLE IF EXISTS `film`;
-CREATE TABLE IF NOT EXISTS `film` (
-  `idFilm` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `film` (
+  `idFilm` int(11) NOT NULL,
   `titreFilm` varchar(254) NOT NULL,
   `dateAjoutFilm` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `datePubFilm` date NOT NULL,
   `imageFilm` varchar(254) NOT NULL,
   `lienFilm` varchar(254) NOT NULL,
-  `resumeFilm` varchar(254) NOT NULL,
-  PRIMARY KEY (`idFilm`),
-  KEY `AK_idFilm` (`idFilm`)
+  `resumeFilm` varchar(254) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `genre`
+-- Table structure for table `genre`
 --
 
-DROP TABLE IF EXISTS `genre`;
-CREATE TABLE IF NOT EXISTS `genre` (
+CREATE TABLE `genre` (
   `idGenre` int(11) NOT NULL,
   `nomGenre` varchar(254) NOT NULL,
-  `descriptionGenre` varchar(254) NOT NULL,
-  PRIMARY KEY (`idGenre`),
-  KEY `AK_idGenre` (`idGenre`)
+  `descriptionGenre` varchar(254) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `genre`
+--
+
+INSERT INTO `genre` (`idGenre`, `nomGenre`, `descriptionGenre`) VALUES
+(3, 'Horreur', 'zombie slm'),
+(2, 'Romantique', 'haha');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `joue`
+-- Table structure for table `joue`
 --
 
-DROP TABLE IF EXISTS `joue`;
-CREATE TABLE IF NOT EXISTS `joue` (
+CREATE TABLE `joue` (
   `idActeur` int(11) NOT NULL,
-  `idFilm` int(11) NOT NULL,
-  PRIMARY KEY (`idActeur`,`idFilm`),
-  KEY `FK_joue` (`idFilm`)
+  `idFilm` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `musique`
+-- Table structure for table `musique`
 --
 
-DROP TABLE IF EXISTS `musique`;
-CREATE TABLE IF NOT EXISTS `musique` (
+CREATE TABLE `musique` (
   `idMusique` int(11) NOT NULL,
   `idArtiste` int(11) NOT NULL,
   `titreMusique` varchar(254) NOT NULL,
@@ -164,26 +172,22 @@ CREATE TABLE IF NOT EXISTS `musique` (
   `imageMusique` varchar(254) NOT NULL,
   `lienMusique` varchar(254) NOT NULL,
   `resumeMusique` varchar(254) NOT NULL,
-  `autreMusique` varchar(254) NOT NULL,
-  PRIMARY KEY (`idMusique`),
-  KEY `FK_association1` (`idArtiste`)
+  `autreMusique` varchar(254) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `newsletter`
+-- Table structure for table `newsletter`
 --
 
-DROP TABLE IF EXISTS `newsletter`;
-CREATE TABLE IF NOT EXISTS `newsletter` (
+CREATE TABLE `newsletter` (
   `emailNewsLetter` varchar(254) NOT NULL,
-  `statut` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`emailNewsLetter`)
+  `statut` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `newsletter`
+-- Dumping data for table `newsletter`
 --
 
 INSERT INTO `newsletter` (`emailNewsLetter`, `statut`) VALUES
@@ -195,11 +199,10 @@ INSERT INTO `newsletter` (`emailNewsLetter`, `statut`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `publicite`
+-- Table structure for table `publicite`
 --
 
-DROP TABLE IF EXISTS `publicite`;
-CREATE TABLE IF NOT EXISTS `publicite` (
+CREATE TABLE `publicite` (
   `idPublicite` int(11) NOT NULL,
   `idEntreprise` int(11) NOT NULL,
   `titrePublicite` varchar(254) NOT NULL,
@@ -207,29 +210,146 @@ CREATE TABLE IF NOT EXISTS `publicite` (
   `datePubMusique` date NOT NULL,
   `imageMusique` varchar(254) NOT NULL,
   `lienMusique` varchar(254) NOT NULL,
-  `resumeMusique` varchar(254) NOT NULL,
-  PRIMARY KEY (`idPublicite`),
-  KEY `FK_pubEntreprise` (`idEntreprise`)
+  `resumeMusique` varchar(254) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `sugestions`
+-- Table structure for table `sugestions`
 --
 
-DROP TABLE IF EXISTS `sugestions`;
-CREATE TABLE IF NOT EXISTS `sugestions` (
-  `idSug` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `sugestions` (
+  `idSug` int(11) NOT NULL,
   `nomSug` varchar(254) NOT NULL,
   `emailSug` varchar(254) NOT NULL,
   `sujetSug` varchar(254) NOT NULL,
   `messageSug` varchar(254) NOT NULL,
   `dateSug` datetime NOT NULL,
-  `luSug` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`idSug`)
+  `luSug` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `acteur`
+--
+ALTER TABLE `acteur`
+  ADD PRIMARY KEY (`idActeur`);
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`idAdmin`);
+
+--
+-- Indexes for table `artiste`
+--
+ALTER TABLE `artiste`
+  ADD PRIMARY KEY (`idArtiste`);
+
+--
+-- Indexes for table `comprend`
+--
+ALTER TABLE `comprend`
+  ADD PRIMARY KEY (`idFilm`,`idGenre`),
+  ADD KEY `FK_comprend` (`idGenre`);
+
+--
+-- Indexes for table `entreprise`
+--
+ALTER TABLE `entreprise`
+  ADD PRIMARY KEY (`idEntreprise`);
+
+--
+-- Indexes for table `film`
+--
+ALTER TABLE `film`
+  ADD PRIMARY KEY (`idFilm`),
+  ADD KEY `AK_idFilm` (`idFilm`);
+
+--
+-- Indexes for table `genre`
+--
+ALTER TABLE `genre`
+  ADD PRIMARY KEY (`idGenre`),
+  ADD KEY `AK_idGenre` (`idGenre`);
+
+--
+-- Indexes for table `joue`
+--
+ALTER TABLE `joue`
+  ADD PRIMARY KEY (`idActeur`,`idFilm`),
+  ADD KEY `FK_joue` (`idFilm`);
+
+--
+-- Indexes for table `musique`
+--
+ALTER TABLE `musique`
+  ADD PRIMARY KEY (`idMusique`),
+  ADD KEY `FK_association1` (`idArtiste`);
+
+--
+-- Indexes for table `newsletter`
+--
+ALTER TABLE `newsletter`
+  ADD PRIMARY KEY (`emailNewsLetter`);
+
+--
+-- Indexes for table `publicite`
+--
+ALTER TABLE `publicite`
+  ADD PRIMARY KEY (`idPublicite`),
+  ADD KEY `FK_pubEntreprise` (`idEntreprise`);
+
+--
+-- Indexes for table `sugestions`
+--
+ALTER TABLE `sugestions`
+  ADD PRIMARY KEY (`idSug`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `acteur`
+--
+ALTER TABLE `acteur`
+  MODIFY `idActeur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `idAdmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `artiste`
+--
+ALTER TABLE `artiste`
+  MODIFY `idArtiste` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `entreprise`
+--
+ALTER TABLE `entreprise`
+  MODIFY `idEntreprise` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `film`
+--
+ALTER TABLE `film`
+  MODIFY `idFilm` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `genre`
+--
+ALTER TABLE `genre`
+  MODIFY `idGenre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `sugestions`
+--
+ALTER TABLE `sugestions`
+  MODIFY `idSug` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

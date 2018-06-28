@@ -26,10 +26,10 @@ Class ActeurManager{
      */
     public function add(Acteur $acteur)
     {
-        $q = $this->_db->prepare('INSERT INTO Acteur(nomActeur, prenomActeur) VALUES(:nomActeur, :prenomActeur)');
+        $q = $this->_db->prepare('INSERT INTO acteur(nomActeur, prenomActeur) VALUES(:nomActeur, :prenomActeur)');
 
-        $q->bindValue(':nomActeur', $acteur->nomActeur(), PDO::PARAM_INT);
-        $q->bindValue(':prenomActeur', $acteur->prenomActeur(), PDO::PARAM_INT);
+        $q->bindValue(':nomActeur', $acteur->nomActeur(), PDO::PARAM_STR);
+        $q->bindValue(':prenomActeur', $acteur->prenomActeur(), PDO::PARAM_STR);
 
         if($q->execute()){
             $acteur->setIdActeur($this->_db->lastInsertId());
@@ -45,7 +45,9 @@ Class ActeurManager{
      */
     public function delete(Acteur $acteur)
     {
-        $this->_db->exec('DELETE FROM Acteur WHERE idActeur = '.$acteur->idActeur());
+        $requete = $this->_db->prepare("DELETE  FROM acteur WHERE idActeur = :id ");
+        $requete->bindValue(":id",(int)$acteur->idActeur());
+        $requete->execute();
     }
 
     /**
@@ -57,8 +59,8 @@ Class ActeurManager{
     public function get($idActeur)
     {
 
-        $q = $this->_db->query('SELECT * FROM Acteur WHERE idActeur = '.(int)$idActeur);
-        $donnees = $q->fetch(PDO::FETCH_ASSOC);
+        $q = $this->_db->query('SELECT * FROM acteur WHERE idActeur = '.(int)$idActeur);
+        $donnees = $q->fetch();
 
         return new Acteur($donnees);
     }
@@ -72,13 +74,12 @@ Class ActeurManager{
     {
         $acteurs = [];
 
-        $q = $this->_db->query('SELECT * FROM Acteur ORDER BY idActeur DESC');
+        $q = $this->_db->query("SELECT * FROM acteur ORDER BY idActeur DESC");
+        $datas = $q->fetchAll();
 
-        while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
-        {
-            $acteurs[] = new Acteur($donnees);
+        foreach ($datas as $data){
+          $acteurs[] = new Acteur($data);
         }
-
         return $acteurs;
     }
 
@@ -91,7 +92,7 @@ Class ActeurManager{
     public function update(Acteur $acteur)
     {
         $q = $this->_db->prepare('UPDATE Acteur SET nomActeur = :nomActeur, prenomActeur = :prenomActeur WHERE idActeur = :idActeur');
-        
+
         $q->bindValue(':nomActeur', $acteur->nomActeur(), PDO::PARAM_INT);
         $q->bindValue(':prenomActeur', $acteur->prenomActeur(), PDO::PARAM_INT);
         $q->bindValue(':idActeur', $acteur->idActeur(), PDO::PARAM_INT);

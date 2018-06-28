@@ -26,15 +26,15 @@ Class GenreManager{
      */
     public function add(Genre $genre)
     {
-        $q = $this->_db->prepare('INSERT INTO Genre(nomGenre, descriptionGenre) VALUES(:nomGenre, :descriptionGenre)');
+      $q = $this->_db->prepare('INSERT INTO genre(nomGenre, descriptionGenre) VALUES(:one, :two)');
 
-        $q->bindValue(':nomGenre', $genre->nomGenre(), PDO::PARAM_INT);
-        $q->bindValue(':descriptionGenre', $genre->descriptionGenre(), PDO::PARAM_INT);
+      $q->bindValue(':one', $genre->nomGenre(), PDO::PARAM_STR);
+      $q->bindValue(':two', $genre->descriptionGenre(), PDO::PARAM_STR);
 
-        if($q->execute()){
-            $genre->setIdGenre($this->_db->lastInsertId());
-            return $this->_db->lastInsertId();
-        }
+      if($q->execute()){
+          $genre->setIdGenre($this->_db->lastInsertId());
+          return $this->_db->lastInsertId();
+      }
     }
 
     /**
@@ -45,7 +45,9 @@ Class GenreManager{
      */
     public function delete(Genre $genre)
     {
-        $this->_db->exec('DELETE FROM Genre WHERE idGenre = '.$genre->idGenre());
+      $requete = $this->_db->prepare("DELETE  FROM genre WHERE idGenre = :id ");
+      $requete->bindValue(":id",(int)$genre->idGenre());
+      $requete->execute();
     }
 
     /**
@@ -57,10 +59,10 @@ Class GenreManager{
     public function get($idGenre)
     {
 
-        $q = $this->_db->query('SELECT * FROM Genre WHERE idGenre = '.(int)$idGenre);
-        $donnees = $q->fetch(PDO::FETCH_ASSOC);
+      $q = $this->_db->query('SELECT * FROM genre WHERE idGenre = '.(int)$idGenre);
+      $donnees = $q->fetch();
 
-        return new Genre($donnees);
+      return new Genre($donnees);
     }
 
     /**
@@ -72,13 +74,12 @@ Class GenreManager{
     {
         $genres = [];
 
-        $q = $this->_db->query('SELECT * FROM Genre ORDER BY idGenre DESC');
+        $q = $this->_db->query("SELECT * FROM genre ORDER BY idGenre DESC");
+        $datas = $q->fetchAll();
 
-        while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
-        {
-            $genres[] = new Genre($donnees);
+        foreach ($datas as $data){
+          $genres[] = new Genre($data);
         }
-
         return $genres;
     }
 
@@ -91,7 +92,7 @@ Class GenreManager{
     public function update(Genre $genre)
     {
         $q = $this->_db->prepare('UPDATE Genre SET nomGenre = :nomGenre, descriptionGenre = :descriptionGenre WHERE idGenre = :idGenre');
-        
+
         $q->bindValue(':nomGenre', $genre->nomGenre(), PDO::PARAM_INT);
         $q->bindValue(':descriptionGenre', $genre->descriptionGenre(), PDO::PARAM_INT);
         $q->bindValue(':idGenre', $genre->idGenre(), PDO::PARAM_INT);
