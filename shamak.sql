@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 -- Base de données :  `shamak`
 --
 
-CREATE DATABASE shamak;
+-- CREATE DATABASE shamak;
 
 -- --------------------------------------------------------
 
