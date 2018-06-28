@@ -11,6 +11,107 @@
         <link href="css/font-awesome.css" rel="stylesheet">
         <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/owl.theme.min.css">
+        <style>
+        .shadow-effect {
+		    background: #fff;
+		    padding: 20px;
+		    border-radius: 4px;
+		    text-align: center;
+	        border:1px solid #ECECEC;
+		    box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
+		}
+		#customers-testimonials .shadow-effect p {
+		    font-family: inherit;
+		    font-size: 17px;
+		    line-height: 1.5;
+		    margin: 0 0 17px 0;
+		    font-weight: 300;
+		}
+		.testimonial-name {
+		    margin: -17px auto 0;
+		    display: table;
+		    width: auto;
+		    background: #3190E7;
+		    padding: 9px 35px;
+		    border-radius: 12px;
+		    text-align: center;
+		    color: #fff;
+		    box-shadow: 0 9px 18px rgba(0,0,0,0.12), 0 5px 7px rgba(0,0,0,0.05);
+		}
+		#customers-testimonials .item {
+		    text-align: center;
+		    padding: 50px;
+			margin-bottom:80px;
+		    opacity: .2;
+		    -webkit-transform: scale3d(0.8, 0.8, 1);
+		    transform: scale3d(0.8, 0.8, 1);
+		    -webkit-transition: all 0.3s ease-in-out;
+		    -moz-transition: all 0.3s ease-in-out;
+		    transition: all 0.3s ease-in-out;
+		}
+		#customers-testimonials .owl-item.active.center .item {
+		    opacity: 1;
+		    -webkit-transform: scale3d(1.0, 1.0, 1);
+		    transform: scale3d(1.0, 1.0, 1);
+            width:auto;
+        }
+        @media only screen and (max-width: 400px) {
+            .owl-carousel .owl-item .item {
+                width:300px;
+                padding:0px;
+                margin:0px;
+            }
+        }
+		.owl-carousel .owl-item img {
+		    transform-style: preserve-3d;
+		    max-width: 90px;
+    		margin: 0 auto 17px;
+        }
+        .owl-dots{
+            display:none;
+        }
+		#customers-testimonials.owl-carousel.owl-theme .owl-dots .owl-dot.active span, #customers-testimonials.owl-carousel.owl-theme .owl-dots .owl-dot:hover span {
+		    background: #28CB75;
+		    transform: translate3d(0px, -50%, 0px) scale(0.7);
+		}
+		#customers-testimonials.owl-carousel.owl-theme .owl-dots .owl-dot span {
+		    background: #C4C4CC;
+		    display: block;
+		    height: 20px;
+		    margin: 0 2px 5px;
+		    transform: translate3d(0px, -50%, 0px) scale(0.3);
+		    transform-origin: 50% 50% 0;
+		    transition: all 250ms ease-out 0s;
+		    width: 20px;
+        }
+        #customers-testimonials .item {
+            margin-bottom: 0px;
+        }
+        .shamak h1{
+            font-size:40px;
+            font-weight: 900;
+        }
+        .social{
+            display:inline-block;
+            padding:5px 10px;
+            margin:0px 10px;
+            color: white;
+            text-transform: uppercase;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            background-color: #726464;
+            -webkit-transition: background-color 350ms;
+            transition: background-color 350ms;
+        }
+        
+        .social:hover{
+            background-color: #c00;
+        }
+        </style>
     </head>
     <body>
         <div class="row black white-text haut" style="margin-bottom:0px;" align="center">
@@ -29,8 +130,8 @@
                     <li><a href="adversiting.php">ADVERSITING</a></li>
                     <li><a href="films.php">FILMS</a></li>
                     <li><a href="ourteam.php">OUR TEAM</a></li>
-                    <li><a href="about.php">ABOUT US</a></li>
-                    <li><a href="contact.php">CONTACT US</a></li>
+                    <li><a href="about.php" class="h">ABOUT US</a></li>
+                    <li><a href="contact.php" class="h">CONTACT US</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     <li class="active"><a href="index.php">HOME</a></li>
@@ -48,103 +149,103 @@
                 <img src="images/face copie.png" style="display: block; transform: translate3d(-50%, 195px, 0px);">
             </div>
         </div>
-        <?php
-        if(isset($_GET['newsletter'])){
-            switch ($_GET['newsletter']) {
-                case 'success':
-                    $newsletter = "Your registration has been successful ..";
-                    break;
-                case 'already':
-                    $newsletter = "You have already registered for the Newsletter ..";
-                    break;
-                case 'enter':
-                    $newsletter = "You must enter an e-mail address ..";
-                    break;
-                case 'fill':
-                    $newsletter = "You must fill all empty fields ..";
-                break;
-            }
-        }
-        ?>
-        <div class="newsletter" id="newsletter">
-            <div class="container">
-                <div class="input-field col s6 nleft">
-                    <p>Subscribe to our newsletter</p>
-                </div>
-                <div class="input-field col s6 nright">
-                    <form action="script/newsletter.php" method="post">
-                        <input name="emailNewsLetter" placeholder="Email..." required="" type="email">
-                        <button class="btn btn-large waves-effect waves-light" name="newsletterform" type="submit">Send</button>
-                    </form>
-                </div>
-            </div>
+        <div class="container center shamak" style="padding:20px 0px">
+            <h1 class="title white-text">#SHAMAK ALLHARAMADJI</h1>
+            <p>
+                <a href="https://www.facebook.com/shamak" class="social">FACEBOOK</a>
+                <a href="https://www.twitter.com/shamak" class="social">TWITTER</a>
+                <a href="https://www.instagram.com/shamak" class="social">INSTAGRAM</a>
+            </p>
         </div>
-        <footer class="page-footer black">
-            <div class="row">
-                <div class="col l3 s12">
-                    <h5 class="white-text">ABOUT</h5>
-                    <p class="grey-text text-darken-1 thin">
-                        This is and official site of shamak allharamadji
-                    </p>
-                    <div class="test">
-                        <a href=""><li class="fa fa-facebook"></li></a> 
-                        <a href=""><li class="fa fa-twitter"></li></a> 
-                        <a href=""><li class="fa fa-linkedin"></li></a> 
-                        <a href=""><li class="fa fa-instagram"></li></a>
+        <!-- TESTIMONIALS -->
+        <section class="testimonials white">
+                <div class="row" style="margin-bottom:0px">
+                    <div class="col m12">
+                        <h1 class="center" style="font-size:30px;font-weight:700;margin-top:50px"> <i class="fa fa-comments"></i> TESTIMONIALS </h1>
+                        <div id="customers-testimonials" class="owl-carousel">
+                            <!--TESTIMONIAL 1 -->
+                            <div class="item">
+                                <div class="shadow-effect">
+                                    <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt="">
+                                    <p><i class="fa fa-quote-left"></i> Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
+                                </div>
+                                <div class="testimonial-name">EMILIANO AQUILANI</div>
+                            </div>
+                            <!--END OF TESTIMONIAL 1 -->
+                            <!--TESTIMONIAL 2 -->
+                            <div class="item">
+                            <div class="shadow-effect">
+                                <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt="">
+                                <p><i class="fa fa-quote-left"></i> Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
+                            </div>
+                            <div class="testimonial-name">ANNA ITURBE</div>
+                            </div>
+                            <!--END OF TESTIMONIAL 2 -->
+                            <!--TESTIMONIAL 3 -->
+                            <div class="item">
+                            <div class="shadow-effect">
+                                <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt="">
+                                <p><i class="fa fa-quote-left"></i> Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
+                            </div>
+                            <div class="testimonial-name">LARA ATKINSON</div>
+                            </div>
+                            <!--END OF TESTIMONIAL 3 -->
+                            <!--TESTIMONIAL 4 -->
+                            <div class="item">
+                            <div class="shadow-effect">
+                                <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt="">
+                                <p><i class="fa fa-quote-left"></i>  Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
+                            </div>
+                            <div class="testimonial-name">IAN OWEN</div>
+                            </div>
+                            <!--END OF TESTIMONIAL 4 -->
+                            <!--TESTIMONIAL 5 -->
+                            <div class="item">
+                            <div class="shadow-effect">
+                                <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt="">
+                                <p><i class="fa fa-quote-left"></i> Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
+                            </div>
+                            <div class="testimonial-name">MICHAEL TEDDY</div>
+                            </div>
+                            <!--END OF TESTIMONIAL 5 -->
+                        </div>
                     </div>
                 </div>
-                <div class="col l3 s12">
-                    <h5 class="white-text">HELP</h5>
-                    <ul>
-                        <li><a class="grey-text text-darken-1" href="about.php">ABOUT US</a></li>
-                        <li><a class="grey-text text-darken-1" href="contact.php">CONTACT US</a></li>
-                    </ul>
-                </div>
-                <div class="col l3 s12">
-                    <h5 class="white-text">LINKS</h5>
-                    <ul>
-                        <li><a class="grey-text text-darken-1" href="videos.php">VIDEOS</a></li>
-                        <li><a class="grey-text text-darken-1" href="adversiting.php">ADVERSITING</a></li>
-                        <li><a class="grey-text text-darken-1" href="films.php">FILMS</a></li>
-                        <li><a class="grey-text text-darken-1" href="ourteam.php">OUR TEAM</a></li>
-                    </ul>
-                </div>
-                
-                <div class="col l3 s12">
-                    <h5 class="white-text">CONTACT</h5>
-                    <p class="grey-text text-darken-1">Adress,<br>Yaounde Cameroun</p>
-                    <ul>
-                        <li><a class="grey-text text-darken-1" href="tel://+237690327402">+237 690 327 402</a></li>
-                        <li><a class="grey-text text-darken-1" href="mailto:email@email.com">email@email.com</a></li>
-                        <li><a class="grey-text text-darken-1" href="monsitte.com">monsite.com</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-copyright">
-                <div class="container white-text">
-                Copyright ©2018 All rights reserved - Made with <i class="fa fa-heart pink-text"></i> by <a class="blue-text text-lighten-1" href="mailto:alladintroumba@gmail.com">#l@d!n$t@r#</a>
-                </div>
-            </div>
-        </footer>
-        <!--Import jQuery before materialize.js-->
-        <script type="text/javascript" src="js/jquery.min.js"></script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
-        <script type="text/javascript" src="js/init.js"></script>
-        <script>
-        $(document).ready(function(){
-            $('.slider').slider();
-                
-            var options = [
-            {selector: '#newsletter', offset: 0, callback: function(el) {
-                Materialize.toast('<?php if(isset($newsletter)){ echo $newsletter; } ?>', 4000 );
-            } }
-            ];
-            Materialize.scrollFire(options);
-        });
+            </section>
+            <!-- END OF TESTIMONIALS -->
+        <?php include("pages/footer.php"); ?>
+        <script src="js/owl.carousel.min.js"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                "use strict";
+                //  TESTIMONIALS CAROUSEL HOOK
+                $('#customers-testimonials').owlCarousel({
+                    loop: true,
+                    center: true,
+                    items: 3,
+                    margin: 0,
+                    autoplay: true,
+                    dots:true,
+                    autoplayTimeout: 8500,
+                    smartSpeed: 450,
+                    responsiveClass:true,
+                    responsive:{
+                        0:{
+                            items:1,
+                            nav:false
+                        },
+                        600:{
+                            items:2,
+                            nav:true
+                        },
+                        1000:{
+                            items:3,
+                            nav:true,
+                            loop:true
+                        }
+                    }
+                });
+            });
         </script>
-        <script src="js/js.js"></script>
-        <a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647; display: none;">
-            <i class="fa fa-angle-up"></i>
-        </a>
     </body>
 </html>

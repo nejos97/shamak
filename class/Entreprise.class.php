@@ -1,31 +1,30 @@
 <?php
 //<>
 /**
- * Implémentation la classe Genre
+ * Implémentation la classe Entreprise
  */
-Class Genre{
+Class Entreprise{
 
     // déclaration des attributs
-    private $idGenre;
-    private $nomGenre;
+    private $idEntreprise;
+    private $nomEntreprise;
 
     // getteurs
-    public function idGenre(){
-        return $this->idGenre;
+    public function idEntreprise(){
+        return $this->idEntreprise;
     }
-    public function nomGenre(){
-        return $this->nomGenre;
+    public function nomEntreprise(){
+        return $this->nomEntreprise;
     }
     
 
     //setteurs
-    public function setIdGenre($idGenre){
-        $this->idGenre = $idGenre;
+    public function setIdEntreprise($idEntreprise){
+        $this->idEntreprise = $idEntreprise;
     }
-    public function setNomGenre($nomGenre){
-        $this->nomGenre = $nomGenre;
+    public function setNomEntreprise($nomEntreprise){
+        $this->nomEntreprise = $nomEntreprise;
     }
-    
     /**
      * Permet d'hydrater les données de l'utilisateur
      *
