@@ -1,7 +1,11 @@
 <?php
 //<>
 /**
+<<<<<<< HEAD
  * Implémentation la classe Entreprise
+=======
+ * Implémentation la classe Artiste
+>>>>>>> 0a106d2580414af4b9c712bcab5fb294b4e3455f
  */
 Class Entreprise{
 
@@ -16,7 +20,11 @@ Class Entreprise{
     public function nomEntreprise(){
         return $this->nomEntreprise;
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 0a106d2580414af4b9c712bcab5fb294b4e3455f
 
     //setteurs
     public function setIdEntreprise($idEntreprise){
@@ -48,4 +56,8 @@ Class Entreprise{
         $this->hydrate($array);
     }
 }
+<<<<<<< HEAD
 ?>
+=======
+?>
+>>>>>>> 0a106d2580414af4b9c712bcab5fb294b4e3455f

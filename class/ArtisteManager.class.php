@@ -44,7 +44,9 @@ Class ArtisteManager{
      */
     public function delete(Artiste $artiste)
     {
-        $this->_db->exec('DELETE FROM Artiste WHERE idArtiste = '.$artiste->idArtiste());
+      $requete = $this->_db->prepare("DELETE  FROM artiste WHERE idArtiste = :id ");
+      $requete->bindValue(":id",(int)$artiste->idArtiste());
+      $requete->execute();
     }
 
     /**
@@ -56,10 +58,10 @@ Class ArtisteManager{
     public function get($idArtiste)
     {
 
-        $q = $this->_db->query('SELECT * FROM Artiste WHERE idArtiste = '.(int)$idArtiste);
-        $donnees = $q->fetch(PDO::FETCH_ASSOC);
+      $q = $this->_db->query('SELECT * FROM artiste WHERE idArtiste = '.(int)$idArtiste);
+      $donnees = $q->fetch();
 
-        return new Artiste($donnees);
+      return new Artiste($donnees);
     }
 
     /**
@@ -69,16 +71,15 @@ Class ArtisteManager{
      */
     public function getList()
     {
-        $artistes = [];
+      $artistes = [];
 
-        $q = $this->_db->query('SELECT * FROM Artiste ORDER BY idArtiste DESC');
+      $q = $this->_db->query("SELECT * FROM artiste ORDER BY idArtiste DESC");
+      $datas = $q->fetchAll();
 
-        while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
-        {
-            $artistes[] = new Artiste($donnees);
-        }
-
-        return $artistes;
+      foreach ($datas as $data){
+        $artistes[] = new Artiste($data);
+      }
+      return $artistes;
     }
 
     /**
@@ -90,7 +91,7 @@ Class ArtisteManager{
     public function update(Artiste $artiste)
     {
         $q = $this->_db->prepare('UPDATE Artiste SET nomArtiste = :nomArtiste WHERE idArtiste = :idArtiste');
-        
+
         $q->bindValue(':nomArtiste', $artiste->nomArtiste(), PDO::PARAM_INT);
         $q->bindValue(':idArtiste', $artiste->idArtiste(), PDO::PARAM_INT);
 
