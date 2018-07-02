@@ -51,19 +51,12 @@
 		    -webkit-transition: all 0.3s ease-in-out;
 		    -moz-transition: all 0.3s ease-in-out;
 		    transition: all 0.3s ease-in-out;
-		}
+        }
 		#customers-testimonials .owl-item.active.center .item {
 		    opacity: 1;
 		    -webkit-transform: scale3d(1.0, 1.0, 1);
-		    transform: scale3d(1.0, 1.0, 1);
+            transform: scale3d(1.0, 1.0, 1);
             width:auto;
-        }
-        @media only screen and (max-width: 400px) {
-            .owl-carousel .owl-item .item {
-                width:300px;
-                padding:0px;
-                margin:0px;
-            }
         }
 		.owl-carousel .owl-item img {
 		    transform-style: preserve-3d;
@@ -90,9 +83,24 @@
         #customers-testimonials .item {
             margin-bottom: 0px;
         }
+        .up{
+            opacity:0.9;
+            background-color:#363434;
+        }
+        .shamak{
+            opacity:1;
+            padding:30px 0px;
+        }
+        
         .shamak h1{
             font-size:40px;
             font-weight: 900;
+            transition:all 1s ease-out;
+        }
+        @media only screen and (max-width: 600px) {
+            .shamak h1{
+                font-size:25px;
+            }
         }
         .social{
             display:inline-block;
@@ -149,70 +157,72 @@
                 <img src="images/face copie.png" style="display: block; transform: translate3d(-50%, 195px, 0px);">
             </div>
         </div>
-        <div class="container center shamak" style="padding:20px 0px">
-            <h1 class="title white-text">#SHAMAK ALLHARAMADJI</h1>
-            <p>
-                <a href="https://www.facebook.com/shamak" class="social">FACEBOOK</a>
-                <a href="https://www.twitter.com/shamak" class="social">TWITTER</a>
-                <a href="https://www.instagram.com/shamak" class="social">INSTAGRAM</a>
-            </p>
+        <div class="up">
+            <div class="container center shamak">
+                <h1 class="title white-text">#SHAMAK ALLHARAMADJI</h1>
+                <p>
+                    <a href="https://www.facebook.com/shamakallharamadji.bienvenue" class="social">FACEBOOK</a>
+                    <a href="https://twitter.com/allharamadji" class="social">TWITTER</a>
+                    <a href="https://www.instagram.com/shamak" class="social">INSTAGRAM</a>
+                </p>
+            </div>
         </div>
         <!-- TESTIMONIALS -->
         <section class="testimonials white">
-                <div class="row" style="margin-bottom:0px">
-                    <div class="col m12">
-                        <h1 class="center" style="font-size:30px;font-weight:700;margin-top:50px"> <i class="fa fa-comments"></i> TESTIMONIALS </h1>
-                        <div id="customers-testimonials" class="owl-carousel">
-                            <!--TESTIMONIAL 1 -->
-                            <div class="item">
-                                <div class="shadow-effect">
-                                    <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt="">
-                                    <p><i class="fa fa-quote-left"></i> Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
-                                </div>
-                                <div class="testimonial-name">EMILIANO AQUILANI</div>
-                            </div>
-                            <!--END OF TESTIMONIAL 1 -->
-                            <!--TESTIMONIAL 2 -->
-                            <div class="item">
+            <div class="row" style="margin-bottom:0px">
+                <div class="col m12">
+                    <h1 class="center" style="font-size:30px;font-weight:700;margin-top:50px"> <i class="fa fa-comments"></i> TESTIMONIALS </h1>
+                    <div id="customers-testimonials" class="owl-carousel">
+                        <!--TESTIMONIAL 1 -->
+                        <div class="item">
                             <div class="shadow-effect">
                                 <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt="">
                                 <p><i class="fa fa-quote-left"></i> Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
                             </div>
-                            <div class="testimonial-name">ANNA ITURBE</div>
-                            </div>
-                            <!--END OF TESTIMONIAL 2 -->
-                            <!--TESTIMONIAL 3 -->
-                            <div class="item">
-                            <div class="shadow-effect">
-                                <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt="">
-                                <p><i class="fa fa-quote-left"></i> Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
-                            </div>
-                            <div class="testimonial-name">LARA ATKINSON</div>
-                            </div>
-                            <!--END OF TESTIMONIAL 3 -->
-                            <!--TESTIMONIAL 4 -->
-                            <div class="item">
-                            <div class="shadow-effect">
-                                <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt="">
-                                <p><i class="fa fa-quote-left"></i>  Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
-                            </div>
-                            <div class="testimonial-name">IAN OWEN</div>
-                            </div>
-                            <!--END OF TESTIMONIAL 4 -->
-                            <!--TESTIMONIAL 5 -->
-                            <div class="item">
-                            <div class="shadow-effect">
-                                <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt="">
-                                <p><i class="fa fa-quote-left"></i> Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
-                            </div>
-                            <div class="testimonial-name">MICHAEL TEDDY</div>
-                            </div>
-                            <!--END OF TESTIMONIAL 5 -->
+                            <div class="testimonial-name">EMILIANO AQUILANI</div>
                         </div>
+                        <!--END OF TESTIMONIAL 1 -->
+                        <!--TESTIMONIAL 2 -->
+                        <div class="item">
+                        <div class="shadow-effect">
+                            <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt="">
+                            <p><i class="fa fa-quote-left"></i> Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
+                        </div>
+                        <div class="testimonial-name">ANNA ITURBE</div>
+                        </div>
+                        <!--END OF TESTIMONIAL 2 -->
+                        <!--TESTIMONIAL 3 -->
+                        <div class="item">
+                        <div class="shadow-effect">
+                            <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt="">
+                            <p><i class="fa fa-quote-left"></i> Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
+                        </div>
+                        <div class="testimonial-name">LARA ATKINSON</div>
+                        </div>
+                        <!--END OF TESTIMONIAL 3 -->
+                        <!--TESTIMONIAL 4 -->
+                        <div class="item">
+                        <div class="shadow-effect">
+                            <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt="">
+                            <p><i class="fa fa-quote-left"></i>  Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
+                        </div>
+                        <div class="testimonial-name">IAN OWEN</div>
+                        </div>
+                        <!--END OF TESTIMONIAL 4 -->
+                        <!--TESTIMONIAL 5 -->
+                        <div class="item">
+                        <div class="shadow-effect">
+                            <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt="">
+                            <p><i class="fa fa-quote-left"></i> Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
+                        </div>
+                        <div class="testimonial-name">MICHAEL TEDDY</div>
+                        </div>
+                        <!--END OF TESTIMONIAL 5 -->
                     </div>
                 </div>
-            </section>
-            <!-- END OF TESTIMONIALS -->
+            </div>
+        </section>
+        <!-- END OF TESTIMONIALS -->
         <?php include("pages/footer.php"); ?>
         <script src="js/owl.carousel.min.js"></script>
         <script type="text/javascript">
@@ -225,23 +235,27 @@
                     items: 3,
                     margin: 0,
                     autoplay: true,
-                    dots:true,
+                    dots:false,
                     autoplayTimeout: 8500,
                     smartSpeed: 450,
+                    mergeFit:false,
+                    rewind:true,
+                    center:true,
                     responsiveClass:true,
                     responsive:{
                         0:{
                             items:1,
-                            nav:false
+                            loop:false,
+                            margin:10
                         },
                         600:{
                             items:2,
-                            nav:true
+                            nav:false,
+                            loop:false
                         },
                         1000:{
                             items:3,
-                            nav:true,
-                            loop:true
+                            nav:false
                         }
                     }
                 });

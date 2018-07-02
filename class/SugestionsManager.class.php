@@ -24,15 +24,14 @@ Class SugestionsManager{
      * @param Sugestions $sugestions Sugestions à ajouter
      * @return int
      */
-    public function add(Sug $sugestions)
+    public function add(Sugestions $sugestions)
     {
-        $q = $this->_db->prepare('INSERT INTO Sugestions(nomSug, emailSug, sujetSug, messageSug, dateSug) VALUES(:nomSug, :emailSug, :sujetSug, :messageSug, :dateSug)');
+        $q = $this->_db->prepare('INSERT INTO Sugestions(nomSug, emailSug, sujetSug, messageSug) VALUES(:nomSug, :emailSug, :sujetSug, :messageSug)');
 
         $q->bindValue(':nomSug', $sugestions->nomSug(), PDO::PARAM_INT);
         $q->bindValue(':emailSug', $sugestions->emailSug(), PDO::PARAM_INT);
         $q->bindValue(':sujetSug', $sugestions->sujetSug(), PDO::PARAM_INT);
         $q->bindValue(':messageSug', $sugestions->messageSug(), PDO::PARAM_INT);
-        $q->bindValue(':dateSug', $sugestions->dateSug(), PDO::PARAM_INT);
 
         if($q->execute()){
             $sugestions->setIdSug($this->_db->lastInsertId());

@@ -20,11 +20,8 @@ SET time_zone = "+00:00";
 -- Database: `shamak`
 --
 
-<<<<<<< Updated upstream
 CREATE DATABASE shamak;
 
-=======
->>>>>>> Stashed changes
 -- --------------------------------------------------------
 
 --

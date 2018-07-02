@@ -24,13 +24,13 @@ Class MusiqueManager{
      * @param Musique $musique Musique à ajouter
      * @return int
      */
-    public function add(Musique $musique,Artiste $artiste)
+    public function add(Musique $musique,$id)
     {
         $q = $this->_db->prepare('INSERT INTO Musique(idArtiste,titreMusique, datePubMusique, imageMusique,lienMusique,resumeMusique,autreMusique) VALUES(:idArtiste, :titreMusique, :datePubMusique, :imageMusique, :lienMusique, :resumeMusique,:autreMusique)');
 
-        $q->bindValue(':idArtiste', $artiste->idArtiste(), PDO::PARAM_INT);
+        $q->bindValue(':idArtiste', $id, PDO::PARAM_INT);
         $q->bindValue(':titreMusique', $musique->titreMusique(), PDO::PARAM_INT);
-        $q->bindValue(':datePubMusique', $datePubMusique, PDO::PARAM_INT);
+        $q->bindValue(':datePubMusique', $musique->datePubMusique(), PDO::PARAM_INT);
         $q->bindValue(':imageMusique', $musique->imageMusique(), PDO::PARAM_INT);
         $q->bindValue(':lienMusique', $musique->lienMusique(), PDO::PARAM_INT);
         $q->bindValue(':resumeMusique', $musique->resumeMusique(), PDO::PARAM_INT);

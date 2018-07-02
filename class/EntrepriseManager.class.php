@@ -19,26 +19,16 @@ Class EntrepriseManager{
     }
 
     /**
-     * Permet d'insérer un artiste dans la BD
+     * Permet d'insérer un entre$entreprise dans la BD
      *
-<<<<<<< HEAD
      * @param Entreprise $entreprise Entreprise à ajouter
-=======
-     * @param Artiste $artiste Artiste à ajouter
->>>>>>> 0a106d2580414af4b9c712bcab5fb294b4e3455f
      * @return int
      */
     public function add(Entreprise $entreprise)
     {
-<<<<<<< HEAD
         $q = $this->_db->prepare('INSERT INTO Entreprise(nomEntreprise) VALUES(:nomEntreprise)');
 
         $q->bindValue(':nomEntreprise', $entreprise->nomEntreprise(), PDO::PARAM_INT);
-=======
-        $q = $this->_db->prepare('INSERT INTO entreprise(nomEntreprise) VALUES(:nomEntreprise)');
-
-        $q->bindValue(':nomEntreprise', $entreprise->nomEntreprise(), PDO::PARAM_STR);
->>>>>>> 0a106d2580414af4b9c712bcab5fb294b4e3455f
 
         if($q->execute()){
             $entreprise->setIdEntreprise($this->_db->lastInsertId());
@@ -46,60 +36,48 @@ Class EntrepriseManager{
         }
     }
 
-<<<<<<< HEAD
     /**
-     * Supprime un artiste
+     * Supprime un entre$entreprise
      *
-     * @param Entreprise $entreprise Objet de l'artiste à supprimer
+     * @param Entreprise $entreprise Objet de l'entre$entreprise à supprimer
      * @return void
      */
     public function delete(Entreprise $entreprise)
     {
         $this->_db->exec('DELETE FROM Entreprise WHERE idEntreprise = '.$entreprise->idEntreprise());
-=======
-
-    public function delete(Entreprise $entreprise)
-    {
-      $requete = $this->_db->prepare("DELETE  FROM entreprise WHERE idEntreprise = :id ");
-      $requete->bindValue(":id",(int)$entreprise->idEntreprise());
-      $requete->execute();
->>>>>>> 0a106d2580414af4b9c712bcab5fb294b4e3455f
     }
 
     /**
-     * Retourne l'objet artiste
+     * Retourne l'objet entre$entreprise
      *
-<<<<<<< HEAD
-     * @param int $idEntreprise id de l'artiste
-=======
-     * @param int $idArtiste id de l'artiste
->>>>>>> 0a106d2580414af4b9c712bcab5fb294b4e3455f
+     * @param int $idEntreprise id de l'entreprise
      * @return void
      */
     public function get($idEntreprise)
     {
 
-<<<<<<< HEAD
         $q = $this->_db->query('SELECT * FROM Entreprise WHERE idEntreprise = '.(int)$idEntreprise);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
         return new Entreprise($donnees);
-=======
-      $q = $this->_db->query('SELECT * FROM entreprise WHERE idEntreprise = '.(int)$idEntreprise);
-      $donnees = $q->fetch();
+    }
 
-      return new Entreprise($donnees);
->>>>>>> 0a106d2580414af4b9c712bcab5fb294b4e3455f
+    public function getByPublicite($idPublicite){
+
+        $q = $this->_db->query('SELECT Entreprise.* FROM Entreprise,Publicite WHERE Entreprise.idEntreprise = Publicite.idEntreprise AND Publicite.idPublicite = '.(int)$idPublicite.' ORDER BY datePubPublicite DESC');
+        
+        $entreprise = new Entreprise($q->fetch(PDO::FETCH_ASSOC));
+
+        return $entreprise;
     }
 
     /**
-     * Retourne tous les artistes de la base de données
+     * Retourne tous les entre$entreprises de la base de données
      *
      * @return array
      */
     public function getList()
     {
-<<<<<<< HEAD
         $entreprises = [];
 
         $q = $this->_db->query('SELECT * FROM Entreprise ORDER BY idEntreprise DESC');
@@ -110,23 +88,11 @@ Class EntrepriseManager{
         }
 
         return $entreprises;
-=======
-      $artistes = [];
-
-      $q = $this->_db->query("SELECT * FROM entreprise ORDER BY idEntreprise DESC");
-      $datas = $q->fetchAll();
-
-      foreach ($datas as $data){
-        $artistes[] = new Entreprise($data);
-      }
-      return $artistes;
->>>>>>> 0a106d2580414af4b9c712bcab5fb294b4e3455f
     }
 
     /**
-     * Permet de modifier les informations d'un artiste
+     * Permet de modifier les informations d'un entre$entreprise
      *
-<<<<<<< HEAD
      * @param Entreprise $entreprise Entreprise à supprimer
      * @return boolean
      */
@@ -136,23 +102,8 @@ Class EntrepriseManager{
         
         $q->bindValue(':nomEntreprise', $entreprise->nomEntreprise(), PDO::PARAM_INT);
         $q->bindValue(':idEntreprise', $entreprise->idEntreprise(), PDO::PARAM_INT);
-=======
-     * @param Artiste $artiste Artiste à supprimer
-     * @return boolean
-     */
-    public function update(Artiste $artiste)
-    {
-        $q = $this->_db->prepare('UPDATE Artiste SET nomArtiste = :nomArtiste WHERE idArtiste = :idArtiste');
-
-        $q->bindValue(':nomArtiste', $artiste->nomArtiste(), PDO::PARAM_INT);
-        $q->bindValue(':idArtiste', $artiste->idArtiste(), PDO::PARAM_INT);
->>>>>>> 0a106d2580414af4b9c712bcab5fb294b4e3455f
 
         $q->execute();
     }
 }
-<<<<<<< HEAD
 ?>
-=======
-?>
->>>>>>> 0a106d2580414af4b9c712bcab5fb294b4e3455f

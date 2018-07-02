@@ -16,7 +16,7 @@
             }
         }
         ?>
-        <div class="newsletter" id="newsletter">
+        <div class="newsletter center" id="newsletter">
             <div class="container">
                 <div class="input-field col s6 nleft">
                     <p>Subscribe to our newsletter</p>
@@ -24,10 +24,10 @@
                 <div class="input-field col s6 nright">
                     <form action="script/newsletter.php" method="post">
                         <div class="input-field col s12">
-                            <input name="emailNewsLetter" placeholder="Email..." required="" type="email">
+                            <input class="input-news" name="emailNewsLetter" placeholder="Your email adress..." required="" type="email">
                         </div>
                         <div class="input-field col s12">
-                            <button class="btn btn-large waves-effect waves-light" name="newsletterform" type="submit">Send</button>
+                            <button class="btn-news" name="newsletterform" type="submit">Send</button>
                         </div>
                     </form>
                 </div>
@@ -75,7 +75,7 @@
                 </div>
             </div>
             <div class="footer-copyright">
-                <div class="container white-text">
+                <div class="container white-text center">
                 Copyright ©2018 All rights reserved - Made with <i class="fa fa-heart pink-text"></i> by <a class="blue-text text-lighten-1" href="mailto:alladintroumba@gmail.com">#l@d!n$t@r#</a>
                 </div>
             </div>

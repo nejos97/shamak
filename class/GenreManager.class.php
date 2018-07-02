@@ -26,16 +26,9 @@ Class GenreManager{
      */
     public function add(Genre $genre)
     {
-<<<<<<< HEAD
         $q = $this->_db->prepare('INSERT INTO Genre(nomGenre) VALUES(:nomGenre)');
 
         $q->bindValue(':nomGenre', $genre->nomGenre(), PDO::PARAM_INT);
-=======
-      $q = $this->_db->prepare('INSERT INTO genre(nomGenre, descriptionGenre) VALUES(:one, :two)');
-
-      $q->bindValue(':one', $genre->nomGenre(), PDO::PARAM_STR);
-      $q->bindValue(':two', $genre->descriptionGenre(), PDO::PARAM_STR);
->>>>>>> 0a106d2580414af4b9c712bcab5fb294b4e3455f
 
       if($q->execute()){
           $genre->setIdGenre($this->_db->lastInsertId());
@@ -97,13 +90,8 @@ Class GenreManager{
      */
     public function update(Genre $genre)
     {
-<<<<<<< HEAD
         $q = $this->_db->prepare('UPDATE Genre SET nomGenre = :nomGenre WHERE idGenre = :idGenre');
         
-=======
-        $q = $this->_db->prepare('UPDATE Genre SET nomGenre = :nomGenre, descriptionGenre = :descriptionGenre WHERE idGenre = :idGenre');
-
->>>>>>> 0a106d2580414af4b9c712bcab5fb294b4e3455f
         $q->bindValue(':nomGenre', $genre->nomGenre(), PDO::PARAM_INT);
         $q->bindValue(':idGenre', $genre->idGenre(), PDO::PARAM_INT);
 

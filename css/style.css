@@ -5,6 +5,10 @@
  *
  * Made By MaterializeCSS.com
  */
+
+html{
+  font-family: 'Open Sans', sans-serif !important;
+}
 body{
   background-image: url("../images/002.jpg");
   background-attachment: fixed;
@@ -218,38 +222,59 @@ div.haut div{
 }
 .newsletter {
   padding: 4em 0;
-  background: rgba(34, 34, 33, 0.6);
+  background: rgba(34, 34, 33, 0.9);
 }
 .newsletter .container{
   opacity:1;
 }
-.nleft p {
+.videos {
+  padding: 4em 0;
+  background: rgba(125, 138, 175, 0.95);
+}
+.videos .container{
+  opacity:1;
+}
+::placeholder {
+  color: #363434;
+}
+::-moz-placeholder {
+  color: #363434;
+}
+.newsletter p {
   font-size: 2em;
+  font-weight: 900;
   color: #fff;
-  text-transform: capitalize;
+  text-transform: uppercase;
+  letter-spacing: 10px;
 }
-.nright input[type="email"] {
-  padding-left: 20px;
+.newsletter .input-news{
+  border:none !important;
+  text-align:center;
+  background-color: rgb(234, 236, 238) !important;
+  font-weight: 700;
+  letter-spacing: 5px;
+}
+.newsletter .input-news:focus{
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6) !important;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6) !important;
+}
+.btn-news{
+  display:inline-block;
+  padding:15px 100px;
+  margin:0px 10px;
+  color: white;
+  text-transform: uppercase;
   outline: none;
-  color: #212121;
-  width: 73.8%;
-  background: #fff;
   border: none;
-}
-.nright input:focus {
-  box-shadow: 0 0 0 0 black !important;
-  border-bottom: none !important;
-}
-.nright input[type="submit"] {
-  outline: none;
-  padding: 5px 0;
-  width: 25%;
-  background: #22d8aa;
-  color: #212121;
-  font-size: 1em;
-  border: none;
+  background-color: #b62a2a;
+  -webkit-transition: background-color 350ms;
+  transition: background-color 350ms;
+  font-weight: 900;
 }
 
+.btn-news:hover{
+  background-color: #c00;
+}
 .row.team{
   padding:200px 20px 200px 20px;
   background-image:url("images/face copie.png");

@@ -82,6 +82,14 @@ Class ArtisteManager{
       return $artistes;
     }
 
+    public function getByMusique($idMusique){
+
+        $q = $this->_db->query('SELECT Artiste.* FROM Artiste,Musique WHERE Artiste.idArtiste = Musique.idArtiste AND Musique.idMusique = '.(int)$idMusique.' ORDER BY datePubMusique DESC');
+        
+        $artiste = new Artiste($q->fetch(PDO::FETCH_ASSOC));
+
+        return $artiste;
+    }
     /**
      * Permet de modifier les informations d'un artiste
      *

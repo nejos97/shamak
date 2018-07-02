@@ -21,22 +21,22 @@ Class PubliciteManager{
     /**
      * Permet d'insérer un Publicite dans la BD
      *
-     * @param Publicite $musique Publicite à ajouter
+     * @param Publicite $publicite Publicite à ajouter
      * @return int
      */
-    public function add(Publicite $musique,Entreprise $entreprise)
+    public function add(Publicite $publicite, $id)
     {
         $q = $this->_db->prepare('INSERT INTO Publicite(idEntreprise,titrePublicite, datePubPublicite, imagePublicite,lienPublicite,resumePublicite) VALUES(:idEntreprise, :titrePublicite, :datePubPublicite, :imagePublicite, :lienPublicite, :resumePublicite)');
 
-        $q->bindValue(':idEntreprise', $entreprise->idEntreprise(), PDO::PARAM_INT);
-        $q->bindValue(':titrePublicite', $musique->titrePublicite(), PDO::PARAM_INT);
-        $q->bindValue(':datePubPublicite', $datePubPublicite, PDO::PARAM_INT);
-        $q->bindValue(':imagePublicite', $musique->imagePublicite(), PDO::PARAM_INT);
-        $q->bindValue(':lienPublicite', $musique->lienPublicite(), PDO::PARAM_INT);
-        $q->bindValue(':resumePublicite', $musique->resumePublicite(), PDO::PARAM_INT);
+        $q->bindValue(':idEntreprise', $id, PDO::PARAM_INT);
+        $q->bindValue(':titrePublicite', $publicite->titrePublicite(), PDO::PARAM_INT);
+        $q->bindValue(':datePubPublicite', $publicite->datePubPublicite(), PDO::PARAM_INT);
+        $q->bindValue(':imagePublicite', $publicite->imagePublicite(), PDO::PARAM_INT);
+        $q->bindValue(':lienPublicite', $publicite->lienPublicite(), PDO::PARAM_INT);
+        $q->bindValue(':resumePublicite', $publicite->resumePublicite(), PDO::PARAM_INT);
 
         if($q->execute()){
-            $musique->setIdPublicite($this->_db->lastInsertId());
+            $publicite->setIdPublicite($this->_db->lastInsertId());
             return $this->_db->lastInsertId();
         }
     }
@@ -44,12 +44,12 @@ Class PubliciteManager{
     /**
      * Supprime un Publicite
      *
-     * @param Publicite $musique Objet de l'Publicite à supprimer
+     * @param Publicite $publicite Objet de l'Publicite à supprimer
      * @return void
      */
-    public function delete(Publicite $musique)
+    public function delete(Publicite $publicite)
     {
-        $this->_db->exec('DELETE FROM Publicite WHERE idPublicite = '.$musique->idPublicite());
+        $this->_db->exec('DELETE FROM Publicite WHERE idPublicite = '.$publicite->idPublicite());
     }
 
     /**
@@ -70,15 +70,10 @@ Class PubliciteManager{
     public function getByEntreprise($idEntreprise){
 
         $q = $this->_db->query('SELECT * FROM Publicite WHERE idEntreprise = '.(int)$idEntreprise.' ORDER BY datePubPublicite DESC');
+
+        $donnees = $q->fetch(PDO::FETCH_ASSOC);
         
-        $musiques = [];
-
-        while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
-        {
-            $musiques[] = new Publicite($donnees);
-        }
-
-        return $musiques;
+        return new Publicite($donnees);
     }
 
     /**
@@ -88,34 +83,34 @@ Class PubliciteManager{
      */
     public function getList()
     {
-        $musiques = [];
+        $publicites = [];
 
         $q = $this->_db->query('SELECT * FROM Publicite ORDER BY idPublicite DESC');
 
         while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
-            $musiques[] = new Publicite($donnees);
+            $publicites[] = new Publicite($donnees);
         }
 
-        return $musiques;
+        return $publicites;
     }
 
     /**
      * Permet de modifier les informations d'un Publicite
      *
-     * @param Publicite $musique Publicite à supprimer
+     * @param Publicite $publicite Publicite à supprimer
      * @return boolean
      */
-    public function update(Publicite $musique)
+    public function update(Publicite $publicite)
     {
         $q = $this->_db->prepare('UPDATE Publicite SET titrePublicite = :titrePublicite, datePubPublicite = :datePubPublicite, imagePublicite = :imagePublicite, lienPublicite = :lienPublicite, resumePublicite = :resumePublicite WHERE idPublicite = :idPublicite');
         
-        $q->bindValue(':titrePublicite', $musique->titrePublicite(), PDO::PARAM_INT);
-        $q->bindValue(':datePubPublicite', $musique->datePubPublicite(), PDO::PARAM_INT);
-        $q->bindValue(':imagePublicite', $musique->imagePublicite(), PDO::PARAM_INT);
-        $q->bindValue(':lienPublicite', $musique->lienPublicite(), PDO::PARAM_INT);
-        $q->bindValue(':resumePublicite', $musique->resumePublicite(), PDO::PARAM_INT);
-        $q->bindValue(':idPublicite', $musique->idPublicite(), PDO::PARAM_INT);
+        $q->bindValue(':titrePublicite', $publicite->titrePublicite(), PDO::PARAM_INT);
+        $q->bindValue(':datePubPublicite', $publicite->datePubPublicite(), PDO::PARAM_INT);
+        $q->bindValue(':imagePublicite', $publicite->imagePublicite(), PDO::PARAM_INT);
+        $q->bindValue(':lienPublicite', $publicite->lienPublicite(), PDO::PARAM_INT);
+        $q->bindValue(':resumePublicite', $publicite->resumePublicite(), PDO::PARAM_INT);
+        $q->bindValue(':idPublicite', $publicite->idPublicite(), PDO::PARAM_INT);
 
         $q->execute();
     }

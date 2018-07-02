@@ -73,12 +73,14 @@ Class ActeurManager{
     public function getList()
     {
         $acteurs = [];
+        $datas = [];
 
         $q = $this->_db->query("SELECT * FROM acteur ORDER BY idActeur DESC");
-        $datas = $q->fetchAll();
+        if($q)
+            $datas = $q->fetchAll();
 
         foreach ($datas as $data){
-          $acteurs[] = new Acteur($data);
+            $acteurs[] = new Acteur($data);
         }
         return $acteurs;
     }

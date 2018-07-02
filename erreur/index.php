@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title><?php $erreur = $_GET['erreur']; echo $erreur; ?> Error</title>
+        <title><?php $erreur = $_GET['erreur']; echo $erreur; ?> Error !</title>
         <style type="text/css">
 
             ::selection { background-color: #E13300; color: white; }
