@@ -21,6 +21,7 @@ if(isset($_POST['submit'])){
 
 
         if(is_object($obj)){
+          
             $AdminManager->setConnectedUser($obj);
             header("location:index.php");
         }

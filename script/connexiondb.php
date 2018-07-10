@@ -1,6 +1,6 @@
 <?php
 
-require_once "/../defines/defines.php";
+require_once "../defines/defines.php";
 
 /* Connexion à une base ODBC avec l'invocation de pilote */
 
