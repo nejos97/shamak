@@ -3,6 +3,7 @@ if(isset($_POST['Sug']) AND $_POST['Sug']=="Sug"){
     if(isset($_POST['nomSug'],$_POST['emailSug'],$_POST['sujetSug'],$_POST['messageSug']) AND !empty($_POST['nomSug']) AND !empty($_POST['emailSug']) AND !empty($_POST['sujetSug']) AND !empty($_POST['messageSug'])){
         require_once "script/connexiondb.php";
         require_once "class/SugestionsManager.class.php";
+        require_once "phpMailerTest.php";
         $SugestionsManager = New SugestionsManager($db);
         $sugestions = New Sugestions(array(
             "nomSug" => htmlspecialchars($_POST['nomSug']),
@@ -11,6 +12,7 @@ if(isset($_POST['Sug']) AND $_POST['Sug']=="Sug"){
             "messageSug" => htmlspecialchars($_POST['messageSug']),
         ));
         if($SugestionsManager->add($sugestions)>0){
+            smtpmailer( 'alladintroumba@gmail.com',htmlspecialchars(strtolower($_POST['emailSug'])), htmlspecialchars($_POST['nomSug']), htmlspecialchars($_POST['sujetSug']), htmlspecialchars($_POST['messageSug']));
             $message = "Your message has been sended !";
         }
         else{

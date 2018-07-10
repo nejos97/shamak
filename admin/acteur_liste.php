@@ -57,7 +57,7 @@ $admin = unserialize( $_SESSION["admin"]) ;
                                   <i class="trash icon"></i>
                                 </button>
                               </a>
-                              <a href=" {% url 'collaboration_delete' coll.id %} ">
+                              <a href="./acteur_modify.php?id=<?= $acteur->idActeur() ?>">
                                 <button class="ui blue circular tiny icon button">
                                   <i class="pencil icon"></i>
                                 </button>

@@ -83,6 +83,26 @@ Class GenreManager{
     }
 
     /**
+     * Retourne tous les genre d'un film précis
+     *
+     * @return array
+     */
+
+    public function getByFilm($id)
+    {
+        $genres = [];
+        $datas = [];
+
+        $q = $this->_db->query("SELECT genre.* FROM genre,comprend WHERE comprend.idGenre = genre.idGenre AND comprend.idFilm = ".$id." ORDER BY idGenre DESC");
+        if($q)
+            $datas = $q->fetchAll();
+
+        foreach ($datas as $data){
+            $genres[] = new Genre($data);
+        }
+        return $genres;
+    }
+    /**
      * Permet de modifier les informations d'un genre
      *
      * @param Genre $genre Genre à supprimer
@@ -90,12 +110,13 @@ Class GenreManager{
      */
     public function update(Genre $genre)
     {
-        $q = $this->_db->prepare('UPDATE Genre SET nomGenre = :nomGenre WHERE idGenre = :idGenre');
+        $q = $this->_db->prepare('UPDATE Genre SET nomGenre = :nomGenre, descriptionGenre = :descriptionGenre WHERE idGenre = :idGenre');
         
         $q->bindValue(':nomGenre', $genre->nomGenre(), PDO::PARAM_INT);
+        $q->bindValue(':descriptionGenre', $genre->descriptionGenre(), PDO::PARAM_INT);
         $q->bindValue(':idGenre', $genre->idGenre(), PDO::PARAM_INT);
 
-        $q->execute();
+        return $q->execute();
     }
 }
 ?>

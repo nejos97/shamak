@@ -84,6 +84,26 @@ Class ActeurManager{
         }
         return $acteurs;
     }
+    /**
+     * Retourne tous les acteurs de la base de données
+     *
+     * @return array
+     */
+
+    public function getByFilm($id)
+    {
+        $acteurs = [];
+        $datas = [];
+
+        $q = $this->_db->query("SELECT acteur.* FROM acteur,joue WHERE joue.idActeur = acteur.idActeur AND joue.idFilm = ".$id." ORDER BY idActeur DESC");
+        if($q)
+            $datas = $q->fetchAll();
+
+        foreach ($datas as $data){
+            $acteurs[] = new Acteur($data);
+        }
+        return $acteurs;
+    }
 
     /**
      * Permet de modifier les informations d'un acteur
@@ -99,7 +119,7 @@ Class ActeurManager{
         $q->bindValue(':prenomActeur', $acteur->prenomActeur(), PDO::PARAM_INT);
         $q->bindValue(':idActeur', $acteur->idActeur(), PDO::PARAM_INT);
 
-        $q->execute();
+        return $q->execute();
     }
 }
 ?>

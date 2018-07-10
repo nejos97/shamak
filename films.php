@@ -1,45 +1,26 @@
 <?php
 require_once "class/FilmManager.class.php";
 require_once "class/ActeurManager.class.php";
-require_once "class/GenreManager.class.php";
 require_once "script/connexiondb.php";
 require_once "functions/youtube.php";
 
-// $acteur[] = New Acteur(array("nomActeur"=>"avaïka troumba","prenomActeur"=>"alladin"));
-// $acteur[] = New Acteur(array("nomActeur"=>"nenba","prenomActeur"=>"jonathan"));
-// $acteur[] = New Acteur(array("nomActeur"=>"sonkeng donfack","prenomActeur"=>"maldini gaston"));
-// $acteur[] = New Acteur(array("nomActeur"=>"kabirou","prenomActeur"=>"tizi"));
-// $acteur[] = New Acteur(array("nomActeur"=>"hybrahyma","prenomActeur"=>"yaya"));
-// $acteur[] = New Acteur(array("nomActeur"=>"mansour","prenomActeur"=>"issa"));
-// $acteur[] = New Acteur(array("nomActeur"=>"haiwang","prenomActeur"=>"serge"));
-// $ActeurManager = New ActeurManager($db);
-// $ActeurManager->add($acteur[6]);
-// 
-// $genre[] = New Genre(array("nomGenre"=>"action"));
-// $genre[] = New Genre(array("nomGenre"=>"romantique"));
-// $genre[] = New Genre(array("nomGenre"=>"science-fiction"));
-// $genre[] = New Genre(array("nomGenre"=>"comédie"));
-// $genre[] = New Genre(array("nomGenre"=>"horreur"));
-// $genre[] = New Genre(array("nomGenre"=>"guerre"));
-// $genre[] = New Genre(array("nomGenre"=>"histoire"));
-// $genre[] = New Genre(array("nomGenre"=>"policier"));
-// $genre[] = New Genre(array("nomGenre"=>"aventure"));
-// $genre[] = New Genre(array("nomGenre"=>"drame"));
-// $GenreManager = New GenreManager($db);
-// $GenreManager->add($genre[9]);
+// $acteur[] = New Acteur(array("nomActeur"=>"Wizboyy"));
+// $acteur[] = New Acteur(array("nomActeur"=>"Anonyme"));
+// $acteur[] = New Acteur(array("nomActeur"=>"Stanley Enow"));
+// $acteur[] = New Acteur(array("nomActeur"=>"Tenor"));
+// $acteur[] = New Acteur(array("nomActeur"=>"Daphné"));
+$ActeurManager = New ActeurManager($db);
+// $ActeurManager->add($acteur[0]);
+// $ActeurManager->add($acteur[1]);
+// $ActeurManager->add($acteur[2]);
+// $ActeurManager->add($acteur[3]);
+// $ActeurManager->add($acteur[4]);
 
-// $film = New Film(array("titreFilm" => "Black Panter","datePubFilm"=>"2017/09/24","imageFilm"=>"parallax1.png","lienFilm"=>"https://www.youtube.com/watch?v=fC6YV65JJ6g","resumeFilm"=>"Ce film parle de black panter Wakanda"));
-// 
-// $acteurs[] = 1;
-// $acteurs[] = 4;
-// $acteurs[] = 6;
-// $acteurs[] = 3;
+// $film = New Film(array("titreFilm" => "Every Days","datePubFilm"=>"2017/09/25","imageFilm"=>"fond2.jpg","lienFilm"=>"https://www.youtube.com/watch?v=fC6YV65JJ6g","resumeFilm"=>"","autreFilm"=>""));
 
-// $genres[] = 3;
-// $genres[] = 1;
 
-// $FilmManager->add($film,$genres,$acteurs);
 $FilmManager = New FilmManager($db);
+// $FilmManager->add($film,2);
 $films = $FilmManager->getlist();
 
 ?>
@@ -55,6 +36,7 @@ $films = $FilmManager->getlist();
         <link href="css/icon.css" rel="stylesheet">
         <link href="css/font-awesome.css" rel="stylesheet">
         <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
         <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <style>
             .modal .modal-content {
@@ -109,36 +91,108 @@ $films = $FilmManager->getlist();
             </div>
         </nav>
         <?php
-        $i=0;
-        foreach ($films as $film) {
-            # code...
-            $i++;
-        ?>  
-            <a href="#modal<?php echo $i; ?>" class="modal-trigger">
-                <div class="parallax-container valign-wrapper">
-                    <div class="section no-pad-bot black-text">
-                        <div class="container">
-                            <div class="row center">
-                                <h5 class="header col s12 light"><?php echo $film->titreFilm(); ?></h5>
+
+        $nbre_article_total = count($films);
+
+        $nbre_article_par_page=33;
+
+        $nbre_article_max_avant_apres=4;
+
+        $nbre_pages = ceil ($nbre_article_total / $nbre_article_par_page);
+
+        if( isset($_GET['page']) && is_numeric($_GET["page"]) ){
+            $page_num=$_GET["page"];
+        }
+        else{
+            $page_num=1;
+        }
+
+        if($page_num<1){
+            $page_num=1;
+        }
+        else if($page_num>$nbre_pages){
+            $page_num = $nbre_pages;
+        }
+        $pagination="<ul class='pagination'>";
+
+        if($nbre_pages != 1){
+            if($page_num>1){
+                $previous= $page_num - 1;
+                $pagination.="<li class='waves-effect waves-yellow'><a href='?page=".$previous."'> <i class='material-icons'>chevron_left</i> </a></li>";
+                for($i = $page_num - $nbre_article_max_avant_apres ; $i<$page_num ; $i++){
+                    if($i>1){
+                        $pagination.="<li class='waves-effect waves-yellow'><a href='?page=".$i."'>".$i."</a></li>";
+                    }
+                }
+            }
+        }
+
+        $pagination.="<li class='active'><a href='?page=".$page_num."'> $page_num</a> </li>";
+
+        for($i=$page_num+1; $i<= $nbre_pages ; $i++){
+            $pagination.="<li class='waves-effect waves-yellow'><a href='?page=".$i."'>".$i."</a></li>";
+            if($i>=$page_num + $nbre_article_max_avant_apres){
+                break;
+            }
+        }
+        
+        if($page_num != $nbre_pages){
+            $next = $page_num + 1;
+            $pagination.="<li class='waves-effect waves-yellow'><a href='?page=".$next."'> <i class='material-icons'>chevron_right</i> </a> </li></ul>";
+        }
+        
+        $limit ="LIMIT ".($page_num-1)*$nbre_article_par_page.",".$nbre_article_par_page ;
+        $sql = "SELECT `idFilm`, `titreFilm`, `imageFilm`,`lienFilm`, `resumeFilm` , DATE_FORMAT(`dateAjoutFilm`,'%d/%m/%Y at %Hh %imin %ss') as `dateAjoutFilm` FROM `Film` ORDER BY `idFilm` DESC $limit";
+        $afficher = $db->query($sql);
+        $films = $afficher->fetchAll(PDO::FETCH_OBJ);
+        ?>
+        <div class="videos" style=" margin:0px">
+            <div class="container">
+                <div class="row">
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">LIST OF ALL OUR FILMS</span>
+                            <p>
+                                <?php
+                                echo "<strong>We have $nbre_article_total videos in total! </strong><br/>";
+                                echo "Page <b>$page_num</b> of <b>$nbre_pages</b>";
+                                ?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                <?php
+                foreach ($films as $film) {
+                    # code...
+                    $i++;
+                    ?>
+                    <div class="col s12 m4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="images/<?php echo $film->imageFilm; ?>">
+                                <span class="card-title"><?php echo mb_convert_case($film->titreFilm, MB_CASE_UPPER, "UTF-8");?></span>
+                                <a href="film.php?idFilm=<?php echo $film->idFilm;?>&titreFilm=<?php echo preg_replace("/ /","-",strtolower($film->titreFilm));?>" class="btn-floating halfway-fab waves-effect waves-light red tooltipped" data-position="bottom" data-delay="50" data-tooltip="Click to view all description of this film"><i class="material-icons">link</i></a>
+                            </div>
+                            <div class="card-content">
+                                <?php
+                                $acteurs = $ActeurManager->getByFilm($film->idFilm);
+                                ?>
+                                <p class="black-text"><b> <?php 
+                                echo (strlen($film->resumeFilm) > 120) ? substr($film->resumeFilm,0,120)."...":$film->resumeFilm;
+                                ?> </b></p>
                             </div>
                         </div>
                     </div>
-                    <div class="parallax">
-                            <img src="images/<?php echo $film->imageFilm(); ?>">
-                    </div>
+                <?php
+                }
+                ?>
                 </div>
-            </a>
-            <!-- Modal Structure -->
-            <div id="modal<?php echo $i; ?>" class="modal">
-                <div class="modal-content">
-                    <div class="video-container">
-                        <iframe width="853" height="480" src="https://www.youtube.com/embed/<?php echo getYoutubeId($film->lienFilm()) ?>?rel=0" frameborder="0" allowfullscreen></iframe>
-                    </div>
+                <div class="center">
+                    <?php echo $pagination; ?>
                 </div>
             </div>
-        <?php
-        }
-        ?>
+        </div>
         <?php include('pages/footer.php'); ?>
     </body>
 </html>

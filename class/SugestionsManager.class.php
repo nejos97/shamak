@@ -45,7 +45,7 @@ Class SugestionsManager{
      * @param Sugestions $sugestions Objet de l'sugestions à supprimer
      * @return void
      */
-    public function delete(Sug $sugestions)
+    public function delete(Sugestions $sugestions)
     {
         $this->_db->exec('DELETE FROM Sugestions WHERE idSug = '.$sugestions->idSug());
     }
@@ -66,22 +66,36 @@ Class SugestionsManager{
     }
 
     /**
-     * Retourne tous les sugestionss de la base de données
+     * Retourne tous les sugestions de la base de données
      *
      * @return array
      */
     public function getList()
     {
-        $sugestionss = [];
+        $sugestions = [];
 
         $q = $this->_db->query('SELECT * FROM Sugestions ORDER BY idSug DESC');
 
         while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
-            $sugestionss[] = new Sugestions($donnees);
+            $sugestions[] = new Sugestions($donnees);
         }
 
-        return $sugestionss;
+        return $sugestions;
+    }
+
+    /**
+     * Retourne le nombre de message non lu
+     *
+     * @return array
+     */
+    public function getRow()
+    {
+
+        $q = $this->_db->query('SELECT * FROM Sugestions WHERE luSug=0');
+
+        return $q->rowCount();
+        
     }
 
     /**
