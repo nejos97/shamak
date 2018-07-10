@@ -55,7 +55,7 @@ $admin = unserialize( $_SESSION["admin"]) ;
                                   <i class="trash icon"></i>
                                 </button>
                               </a>
-                              <a href="">
+                              <a href="./entreprise_modify.php?id=<?= $entreprise->idEntreprise() ?>">
                                 <button class="ui blue circular tiny icon button">
                                   <i class="pencil icon"></i>
                                 </button>

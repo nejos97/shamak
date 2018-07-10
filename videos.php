@@ -94,7 +94,7 @@ $musiques = $MusiqueManager->getlist();
 
         $nbre_article_total = count($musiques);
 
-        $nbre_article_par_page=30;
+        $nbre_article_par_page=33;
 
         $nbre_article_max_avant_apres=4;
 
@@ -142,7 +142,7 @@ $musiques = $MusiqueManager->getlist();
         }
         
         $limit ="LIMIT ".($page_num-1)*$nbre_article_par_page.",".$nbre_article_par_page ;
-        $sql = "SELECT `idMusique`, `titreMusique`, `imageMusique`,`lienMusique`, `nomArtiste` , DATE_FORMAT(`dateAjoutMusique`,'%d/%m/%Y à %Hh %imin %ss') as `dateAjoutMusique` FROM `Musique`,`Artiste` WHERE artiste.idArtiste = musique.idArtiste  ORDER BY `idMusique` DESC $limit";
+        $sql = "SELECT `idMusique`, `titreMusique`, `imageMusique`,`lienMusique`, `nomArtiste`, `autreMusique` , DATE_FORMAT(`dateAjoutMusique`,'%d/%m/%Y à %Hh %imin %ss') as `dateAjoutMusique` FROM `Musique`,`Artiste` WHERE artiste.idArtiste = musique.idArtiste  ORDER BY `idMusique` DESC $limit";
         $afficher = $db->query($sql);
         $musiques = $afficher->fetchAll(PDO::FETCH_OBJ);
         ?>
@@ -172,13 +172,13 @@ $musiques = $MusiqueManager->getlist();
                                 <div class="card">
                                     <div class="card-image">
                                         <img src="images/<?php echo $musique->imageMusique; ?>">
-                                        <span class="card-title"><?php echo strtoupper($musique->titreMusique);?></span>
+                                        <span class="card-title"><?php echo mb_convert_case($musique->titreMusique, MB_CASE_UPPER, "UTF-8");?></span>
                                     </div>
                                     <div class="card-content">
                                         <?php
                                         $artiste = $ArtisteManager->getByMusique($musique->idMusique);
                                         ?>
-                                        <p class="black-text" style="font-family: 'Open Sans', serif;"><b> <?php echo strtoupper($artiste->nomArtiste());?> </b></p>
+                                        <p class="black-text"><b> <?php echo strtoupper($artiste->nomArtiste()); if(!empty($musique->autreMusique)){ echo " Feat. ".strtoupper($musique->autreMusique);} ?> </b></p>
                                     </div>
                                 </div>
                             </div>

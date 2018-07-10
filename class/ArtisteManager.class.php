@@ -103,7 +103,7 @@ Class ArtisteManager{
         $q->bindValue(':nomArtiste', $artiste->nomArtiste(), PDO::PARAM_INT);
         $q->bindValue(':idArtiste', $artiste->idArtiste(), PDO::PARAM_INT);
 
-        $q->execute();
+        return $q->execute();
     }
 }
 ?>

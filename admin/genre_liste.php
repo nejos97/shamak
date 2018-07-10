@@ -56,7 +56,7 @@ $admin = unserialize( $_SESSION["admin"]) ;
                                   <i class="trash icon"></i>
                                 </button>
                               </a>
-                              <a href="">
+                              <a href="./genre_modify.php?id=<?= $genre->idGenre() ?>">
                                 <button class="ui blue circular tiny icon button">
                                   <i class="pencil icon"></i>
                                 </button>

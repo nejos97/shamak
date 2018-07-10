@@ -36,8 +36,8 @@
         </div>
         <nav class="nav-extended grey darken-1">
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Shamak</a>
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <a href="#!" class="brand-logo">Shamak</a>
+                <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="index.php">HOME</a></li>
                     <li><a href="videos.php">VIDEOS</a></li>
@@ -59,16 +59,155 @@
             </div>
         </nav>
         <div class="row team">
-            <h5 class="header center white-text text-lighten-2">MY TEAM</h5>
+            <h5 class="header center white-text text-lighten-2"></h5>
         </div>
-        <div class="carousel">
-            <a class="carousel-item" href="#one!">
-                <img src="images/fond2.jpg">
-            </a>
-            <a class="carousel-item" href="#two!"><img src="images/fond2.jpg"></a>
-            <a class="carousel-item" href="#three!"><img src="images/fond2.jpg"></a>
-            <a class="carousel-item" href="#four!"><img src="images/fond2.jpg"></a>
-            <a class="carousel-item" href="#five!"><img src="images/fond2.jpg"></a>
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="images/fond.jpg">
+                            <span class="card-title">VIDEO PROJECTOR</span>
+                            <a href="#!" class="btn-floating halfway-fab waves-effect waves-light red tooltipped activator" data-position="bottom" data-delay="50" data-tooltip="Click to view all description of this person"><i class="material-icons">link</i></a>
+                        </div>
+                        <div class="card-content">
+                            <p class="black-text"><b> SHAMAK ALHRAMADJI </b></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="images/fond.jpg">
+                            <span class="card-title">VIDEO PROJECTOR</span>
+                            <a href="#!" class="btn-floating halfway-fab waves-effect waves-light red tooltipped activator" data-position="bottom" data-delay="50" data-tooltip="Click to view all description of this person"><i class="material-icons">link</i></a>
+                        </div>
+                        <div class="card-content">
+                            <p class="black-text"><b> SHAMAK ALHRAMADJI </b></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="images/fond.jpg">
+                            <span class="card-title">VIDEO PROJECTOR</span>
+                            <a href="#!" class="btn-floating halfway-fab waves-effect waves-light red tooltipped activator" data-position="bottom" data-delay="50" data-tooltip="Click to view all description of this person"><i class="material-icons">link</i></a>
+                        </div>
+                        <div class="card-content">
+                            <p class="black-text"><b> SHAMAK ALHRAMADJI </b></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="images/fond.jpg">
+                            <span class="card-title">VIDEO PROJECTOR</span>
+                            <a href="#!" class="btn-floating halfway-fab waves-effect waves-light red tooltipped activator" data-position="bottom" data-delay="50" data-tooltip="Click to view all description of this person"><i class="material-icons">link</i></a>
+                        </div>
+                        <div class="card-content">
+                            <p class="black-text"><b> SHAMAK ALHRAMADJI </b></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="images/fond.jpg">
+                            <span class="card-title">VIDEO PROJECTOR</span>
+                            <a href="#!" class="btn-floating halfway-fab waves-effect waves-light red tooltipped activator" data-position="bottom" data-delay="50" data-tooltip="Click to view all description of this person"><i class="material-icons">link</i></a>
+                        </div>
+                        <div class="card-content">
+                            <p class="black-text"><b> SHAMAK ALHRAMADJI </b></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="images/fond.jpg">
+                            <span class="card-title">VIDEO PROJECTOR</span>
+                            <a href="#!" class="btn-floating halfway-fab waves-effect waves-light red tooltipped activator" data-position="bottom" data-delay="50" data-tooltip="Click to view all description of this person"><i class="material-icons">link</i></a>
+                        </div>
+                        <div class="card-content">
+                            <p class="black-text"><b> SHAMAK ALHRAMADJI </b></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="images/fond.jpg">
+                            <span class="card-title">VIDEO PROJECTOR</span>
+                            <a href="#!" class="btn-floating halfway-fab waves-effect waves-light red tooltipped activator" data-position="bottom" data-delay="50" data-tooltip="Click to view all description of this person"><i class="material-icons">link</i></a>
+                        </div>
+                        <div class="card-content">
+                            <p class="black-text"><b> SHAMAK ALHRAMADJI </b></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="images/fond.jpg">
+                            <span class="card-title">VIDEO PROJECTOR</span>
+                            <a href="#!" class="btn-floating halfway-fab waves-effect waves-light red tooltipped activator" data-position="bottom" data-delay="50" data-tooltip="Click to view all description of this person"><i class="material-icons">link</i></a>
+                        </div>
+                        <div class="card-content">
+                            <p class="black-text"><b> SHAMAK ALHRAMADJI </b></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="images/fond.jpg">
+                            <span class="card-title">VIDEO PROJECTOR</span>
+                            <a href="#!" class="btn-floating halfway-fab waves-effect waves-light red tooltipped activator" data-position="bottom" data-delay="50" data-tooltip="Click to view all description of this person"><i class="material-icons">link</i></a>
+                        </div>
+                        <div class="card-content">
+                            <p class="black-text"><b> SHAMAK ALHRAMADJI </b></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <?php include('pages/footer.php'); ?>
     </body>

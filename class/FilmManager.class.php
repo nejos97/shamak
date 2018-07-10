@@ -80,8 +80,10 @@ Class FilmManager{
 
         $q = $this->_db->query('SELECT * FROM Film WHERE idFilm = '.(int)$idFilm);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
-
-        return new Film($donnees);
+        if($donnees)
+            return new Film($donnees);
+        else
+            return new Film(array());
     }
 
     /**

@@ -103,7 +103,7 @@ Class EntrepriseManager{
         $q->bindValue(':nomEntreprise', $entreprise->nomEntreprise(), PDO::PARAM_INT);
         $q->bindValue(':idEntreprise', $entreprise->idEntreprise(), PDO::PARAM_INT);
 
-        $q->execute();
+        return $q->execute();
     }
 }
 ?>

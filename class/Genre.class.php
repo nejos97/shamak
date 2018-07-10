@@ -8,13 +8,19 @@ Class Genre{
     // déclaration des attributs
     private $idGenre;
     private $nomGenre;
+    private $descriptionGenre;
 
     // getteurs
     public function idGenre(){
         return $this->idGenre;
     }
+    
     public function nomGenre(){
         return $this->nomGenre;
+    }
+    
+    public function descriptionGenre(){
+        return $this->descriptionGenre;
     }
     
 
@@ -24,6 +30,10 @@ Class Genre{
     }
     public function setNomGenre($nomGenre){
         $this->nomGenre = $nomGenre;
+    }
+    
+    public function setDescriptionGenre($descriptionGenre){
+        $this->descriptionGenre = $descriptionGenre;
     }
     
     /**
